@@ -1,55 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Gallery</title>
-  
-<style>
-  body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: url('background.jpg') no-repeat center center fixed;
-    background-size: cover;
-    color: white;
-  }
-  nav {
-    background-color: rgba(0, 0, 0, 0.7);
-    padding: 1em;
-    text-align: center;
-  }
-  nav a {
-    color: white;
-    margin: 0 15px;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 1.2em;
-  }
-  h1 {
-    margin-top: 60px;
-    text-align: center;
-    font-size: 3em;
-    text-shadow: 2px 2px 5px #000;
-  }
-  .content {
-    max-width: 800px;
-    margin: 40px auto;
-    background-color: rgba(0, 0, 0, 0.6);
-    padding: 20px;
-    border-radius: 10px;
-  }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gallery - Car Detailing</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+    }
 
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .gallery-grid img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    @media (max-width: 600px) {
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 <body>
-  
-<nav>
-  <a href="index.html">Home</a>
-  <a href="about.html">About</a>
-  <a href="gallery.html">Gallery</a>
-  <a href="services.html">Services</a>
-  <a href="contact.html">Contact</a>
-</nav>
-
-  <h1>Gallery</h1><div class='content'><p>Edit this section to add car images and descriptions.</p></div>
+  <div class="container">
+    <h1>Gallery</h1>
+    <div class="gallery-grid">
+      <img src="images/IMG_1884.jpeg" alt="">
+      <img src="images/IMG_2052.jpeg" alt="">
+      <img src="images/IMG_2095.jpeg" alt="">
+      <img src="images/IMG_2107.jpeg" alt="">
+      <img src="images/IMG_2143.jpeg" alt="">
+      <img src="images/IMG_2145.jpeg" alt="">
+      <img src="images/IMG_2293.jpeg" alt="">
+      <img src="images/IMG_2294.jpeg" alt="">
+      <img src="images/IMG_2298.jpeg" alt="">
+      <img src="images/IMG_2048.jpeg" alt="">
+    </div>
+  </div>
 </body>
 </html>
