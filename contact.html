@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Contact Us</title>
+  <title>Contact</title>
   
 <style>
   body {
@@ -13,7 +13,7 @@
     color: white;
   }
   nav {
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.85);
     padding: 1em;
     text-align: center;
   }
@@ -22,20 +22,46 @@
     margin: 0 15px;
     text-decoration: none;
     font-weight: bold;
-    font-size: 1.2em;
+    font-size: 1.1em;
   }
   h1 {
     margin-top: 60px;
     text-align: center;
     font-size: 3em;
-    text-shadow: 2px 2px 5px #000;
+    text-shadow: 2px 2px 6px #000;
   }
   .content {
     max-width: 800px;
     margin: 40px auto;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.7);
     padding: 20px;
     border-radius: 10px;
+  }
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+  }
+  .gallery img {
+    width: 100%;
+    border-radius: 8px;
+  }
+  form input, form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+  }
+  form button {
+    padding: 10px 20px;
+    margin-top: 10px;
+    background-color: #007BFF;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
   }
 </style>
 
@@ -50,6 +76,13 @@
   <a href="contact.html">Contact</a>
 </nav>
 
-  <h1>Contact Us</h1><div class='content'><p>Edit this section to add your contact information.</p></div>
+  <h1>Contact Us</h1><div class='content'>
+        <form action="https://formspree.io/f/mayvlzvn" method="POST">
+          <input type="text" name="name" placeholder="Your Name" required>
+          <input type="email" name="_replyto" placeholder="Your Email" required>
+          <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+          <button type="submit">Send Message</button>
+        </form>
+    </div>
 </body>
 </html>
