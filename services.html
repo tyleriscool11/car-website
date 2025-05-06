@@ -13,7 +13,7 @@
     color: white;
   }
   nav {
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.85);
     padding: 1em;
     text-align: center;
   }
@@ -22,20 +22,67 @@
     margin: 0 15px;
     text-decoration: none;
     font-weight: bold;
-    font-size: 1.2em;
+    font-size: 1.1em;
   }
   h1 {
     margin-top: 60px;
     text-align: center;
     font-size: 3em;
-    text-shadow: 2px 2px 5px #000;
+    text-shadow: 2px 2px 6px #000;
   }
   .content {
-    max-width: 800px;
+    max-width: 1000px;
     margin: 40px auto;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.7);
     padding: 20px;
     border-radius: 10px;
+  }
+  .packages {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-around;
+    text-align: center;
+  }
+  .package {
+    flex: 1;
+    min-width: 280px;
+    background-color: rgba(255,255,255,0.1);
+    padding: 10px;
+    border-radius: 10px;
+  }
+  .package img {
+    width: 100%;
+    border-radius: 10px;
+  }
+  .silver { color: silver; }
+  .gold { color: gold; }
+  .premium { color: violet; }
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+  }
+  .gallery img {
+    width: 100%;
+    border-radius: 8px;
+  }
+  form input, form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+  }
+  form button {
+    padding: 10px 20px;
+    margin-top: 10px;
+    background-color: #007BFF;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
   }
 </style>
 
@@ -47,9 +94,31 @@
   <a href="about.html">About</a>
   <a href="gallery.html">Gallery</a>
   <a href="services.html">Services</a>
+  <a href="book.html">Book Now</a>
   <a href="contact.html">Contact</a>
 </nav>
 
-  <h1>Our Services</h1><div class='content'><p>Edit this section to list your services.</p></div>
+  
+    <h1>Detailing Packages</h1>
+    <div class='content'>
+      <div class="packages">
+        <div class="package">
+          <img src="https://via.placeholder.com/300x200?text=Car+1" alt="Silver Package Car">
+          <h2 class="silver">Silver Package - $50</h2>
+          <p>Exterior wash with 2–3 ceramic protectant + safe contact wash.</p>
+        </div>
+        <div class="package">
+          <img src="https://via.placeholder.com/300x200?text=Car+2" alt="Gold Package Car">
+          <h2 class="gold">Gold Package - $115</h2>
+          <p>Inside vacuum and light chemical wipedown + <span class='silver'>Silver Package</span>.</p>
+        </div>
+        <div class="package">
+          <img src="https://via.placeholder.com/300x200?text=Car+3" alt="Premium Package Car">
+          <h2 class="premium">Premium Package - $150</h2>
+          <p><span class='gold'>Gold Package</span> + stain and pet hair remover + paint decontamination.</p>
+        </div>
+      </div>
+    </div>
+    
 </body>
 </html>
