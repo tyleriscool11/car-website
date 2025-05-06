@@ -1,46 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Services - SR Auto Detailing</title>
   <style>
-    body { font-family: Arial; margin: 0; padding: 0; background: #f0f0f0; }
-    .section { text-align: center; padding: 40px 20px; }
-    .packages { display: flex; justify-content: space-around; flex-wrap: wrap; }
-    .package { width: 30%; background: white; margin: 15px; padding: 20px; border-radius: 10px; }
-    .package img { width: 100%; border-radius: 10px; }
-    h2 { margin: 15px 0; }
+    body {{
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #111;
+      color: white;
+    }}
+    nav {{
+      background: #000;
+      padding: 10px;
+      text-align: center;
+    }}
+    nav a {{
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+    }}
+    nav a:hover {{
+      text-decoration: underline;
+    }}
+    .package {{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      margin: 40px;
+      border-bottom: 1px solid #444;
+      padding-bottom: 20px;
+    }}
+    .package-info {{
+      flex: 1;
+    }}
+    .package-img {{
+      flex: 1;
+      text-align: right;
+    }}
+    .package-img img {{
+      width: 80%;
+      border-radius: 10px;
+    }}
+    .premium {{ color: #D8BFD8; }}
+    .gold {{ color: gold; }}
+    .silver {{ color: silver; }}
   </style>
 </head>
 <body>
-  
-<nav style="background-color: #000; padding: 15px; text-align: center;">
-  <a href="index.html" style="color: white; margin: 0 15px; text-decoration: none;">Home</a>
-  <a href="services.html" style="color: white; margin: 0 15px; text-decoration: none;">Services</a>
-  <a href="gallery.html" style="color: white; margin: 0 15px; text-decoration: none;">Gallery</a>
-  <a href="contact.html" style="color: white; margin: 0 15px; text-decoration: none;">Contact</a>
-</nav>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="contact.html">Contact</a>
+  </nav>
 
-  <div class="section">
-    <h1>Detailing Packages</h1>
-    <div class="packages">
-      <div class="package">
-        <img src="images/car1.jpg" alt="Silver Package"/>
-        <h2 style="color: silver;">Silver Package</h2>
-        <p>$50 - Exterior wash with 2-3 ceramic protectant + safe contact wash</p>
-      </div>
-      <div class="package">
-        <img src="images/car2.jpg" alt="Gold Package"/>
-        <h2 style="color: gold;">Gold Package</h2>
-        <p>$115 - Inside vacuum and light chemical wipe-down + <span style="color: silver;">Silver Package</span></p>
-      </div>
-      <div class="package">
-        <img src="images/car3.jpg" alt="Premium Package"/>
-        <h2 style="color: plum;">Premium Package</h2>
-        <p>$150 - <span style="color: gold;">Gold Package</span> + stain and pet hair remover + paint decontamination</p>
-      </div>
+  <h1 style="text-align: center; margin-top: 20px;">Detailing Packages</h1>
+
+  <div class="package">
+    <div class="package-info">
+      <h2 class="premium">Premium Package - $150</h2>
+      <p>Gold package + stain and pet hair remover + paint decontamination</p>
+    </div>
+    <div class="package-img">
+      <img src="images/IMG_2048.jpeg" alt="Premium Package">
     </div>
   </div>
+
+  <div class="package">
+    <div class="package-info">
+      <h2 class="gold">Gold Package - $115</h2>
+      <p>Inside vacuum and light chemical wipedown + <span class="silver">Silver Package</span></p>
+    </div>
+    <div class="package-img">
+      <img src="images/IMG_2145.jpeg" alt="Gold Package">
+    </div>
+  </div>
+
+  <div class="package">
+    <div class="package-info">
+      <h2 class="silver">Silver Package - $50</h2>
+      <p>Exterior wash with 2–3 ceramic protectant + safe contact wash</p>
+    </div>
+    <div class="package-img">
+      <img src="images/IMG_2107.jpeg" alt="Silver Package">
+    </div>
+  </div>
+
 </body>
 </html>
