@@ -5,6 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Services</title>
   <style>
+
+    .book-btn {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 20px;
+  background-color: #6200ea;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.book-btn:hover {
+  background-color: #7e3ff2;
+  transform: scale(1.05);
+}
+
+    
     .package {
   display: flex;
   justify-content: space-between;
@@ -154,7 +174,9 @@ package:hover {
     <div class="package">
       <div class="package-title"><span class="premium">Premium</span> Package - $150</div>
       <div class="package-desc">Gold package + Stain and Pet Hair Removal + Paint Decontamination</div>
-      <a href="booking.html" class="book-btn">Book Now</a>
+      <button href="booking.html" class="book-btn">Book Now</button>
+      <button class="book-btn" onclick="window.location.href='booking.html';">Book Now</button>
+
     </div>
     <img src="images/Mercedesfront.jpeg" alt="Premium Package Car" class="package-img" />
     </div>
@@ -163,7 +185,8 @@ package:hover {
     <div class="package">
       <div class="package-title"><span class="gold">Gold</span> Package - $115</div>
       <div class="package-desc">Silver Package + Inside vacuum and light Chemical wipedown</div>
-      <a href="booking.html" class="book-btn">Book Now</a>
+      <button class="book-btn" onclick="window.location.href='booking.html';">Book Now</button>
+      <button href="booking.html" class="book-btn">Book Now</button>
     </div>
   <img src="images/Trishcarside.jpeg" alt="Gold Package Car" class="package-img" />
   </div>
@@ -171,7 +194,9 @@ package:hover {
     <div class="package">
       <div class="package-title"><span class="silver">Silver</span> Package - $50</div>
       <div class="package-desc">Exterior Wash with 2–3 Ceramic Protectant + Safe Contact Wash</div>
-      <a href="booking.html" class="book-btn">Book Now</a>
+      <button href="booking.html" class="book-btn">Book Now</button>
+      <button class="book-btn" onclick="window.location.href='booking.html';">Book Now</button>
+
     </div>
   <img src="images/wheel.HEIC" alt="Silver Package Car" class="package-img" />
   </div>
