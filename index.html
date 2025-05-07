@@ -2,10 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SR Auto Detailing</title>
   <link rel="icon" href="images/logo-small.png" type="image/png" />
-
   <style>
     body, html {
       height: 100%;
@@ -13,7 +12,6 @@
       font-family: Arial, sans-serif;
     }
 
-    /* Hero Background */
     .background {
       background: url('images/Mercedesfront.jpeg') no-repeat center center/cover;
       position: relative;
@@ -29,39 +27,35 @@
       width: 100%;
     }
 
-    /* Header/Nav */
-  header {
-  position: absolute;
-  top: 0;
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0.85);
-  display: flex;
-  justify-content: center; /* centers nav links */
-  align-items: center;
-  padding: 20px 0;
-  z-index: 2;
-}
+    header {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.85);
+      display: flex;
+      justify-content: center;
+      padding: 20px 0;
+      z-index: 2;
+    }
 
-nav {
-  display: flex;
-  gap: 30px; /* spacing between links */
-}
+    nav {
+      display: flex;
+      gap: 30px;
+    }
 
-nav a {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 1rem;
-}
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1rem;
+    }
 
-
-
-    /* Hero Title */
     .content {
       position: relative;
       z-index: 1;
       height: 100%;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
       text-align: center;
@@ -72,26 +66,14 @@ nav a {
     .content h1 {
       font-size: 3rem;
       text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
-    }
-
-    /* CTA Section */
-    .cta-section {
-      text-align: center;
-      padding: 60px 20px;
-      background-color: #1e1e1e;
-      color: white;
-    }
-
-    .cta-section h2 {
-      font-size: 2em;
       margin-bottom: 30px;
     }
 
     .cta-buttons {
       display: flex;
-      justify-content: center;
       gap: 20px;
       flex-wrap: wrap;
+      justify-content: center;
     }
 
     .cta-btn {
@@ -110,9 +92,7 @@ nav a {
     }
   </style>
 </head>
-
 <body>
-  <!-- Hero Section -->
   <div class="background">
     <div class="overlay"></div>
     <header>
@@ -123,20 +103,15 @@ nav a {
         <a href="contact.html">Contact</a>
       </nav>
     </header>
+
     <div class="content">
       <h1>Supreme Revive Auto Detailing</h1>
-    </div>
-  </div>
-
-  <!-- CTA Section BELOW Hero -->
-  <div style="position: relative; z-index: 1;">
-    <section class="cta-section">
-      <h2>Explore Supreme Revive Auto Detailing</h2>
       <div class="cta-buttons">
         <a href="services.html" class="cta-btn">View Services</a>
         <a href="gallery.html" class="cta-btn">View Gallery</a>
       </div>
-    </section>
+    </div>
   </div>
 </body>
 </html>
+
