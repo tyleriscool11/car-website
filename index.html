@@ -30,24 +30,30 @@
     }
 
     /* Header/Nav */
-    header {
-      position: absolute;
-      top: 0;
-      width: 100%;
-      background-color: rgba(0, 0, 0, 0.85);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 40px;
-      z-index: 2;
-    }
+   header {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.85);
+  display: flex;
+  justify-content: center; /* centers nav links */
+  align-items: center;
+  padding: 20px 0;
+  z-index: 2;
+}
 
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      margin-left: 20px;
-    }
+nav {
+  display: flex;
+  gap: 30px; /* spacing between links */
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
 
     /* Hero Title */
     .content {
