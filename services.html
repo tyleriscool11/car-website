@@ -5,6 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Services</title>
   <style>
+    package-img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+package:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.1);
+}
+
+    
     body {
       margin: 0;
       padding: 0;
@@ -91,16 +104,19 @@
     <h1>Detailing Packages</h1>
 
     <div class="package">
+      <img src="images/premium.jpg" alt="Premium Package Car" class="package-img" />
       <div class="package-title"><span class="premium">Premium</span> Package - $150</div>
       <div class="package-desc">Gold package + Stain and Pet Hair Removal + Paint Decontamination</div>
     </div>
 
     <div class="package">
+      <img src="images/gold.jpg" alt="Gold Package Car" class="package-img" />
       <div class="package-title"><span class="gold">Gold</span> Package - $115</div>
       <div class="package-desc">Silver Package + Inside vacuum and light Chemical wipedown</div>
     </div>
 
     <div class="package">
+      <img src="images/silver" alt="Silver Package Car" class="package-img" />
       <div class="package-title"><span class="silver">Silver</span> Package - $50</div>
       <div class="package-desc">Exterior Wash with 2–3 Ceramic Protectant + Safe Contact Wash</div>
     </div>
