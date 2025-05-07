@@ -8,25 +8,24 @@
 
   <style>
    .navbar {
-  display: flex;
-  justify-content: center; 
-  align-items: center;     
-  width: 100%;
-  background-color: #000;
-}
+      display: flex;
+      justify-content: center; 
+      align-items: center;     
+      width: 100%;
+      background-color: #000;
+    }
 
-.navbar a {
-  color: white;
-  padding: 10px 15px;
-  text-decoration: none;
-  font-size: 18px;
-  margin: 0 10px;  
-}
+    .navbar a {
+      color: white;
+      padding: 10px 15px;
+      text-decoration: none;
+      font-size: 18px;
+      margin: 0 10px;  
+    }
 
-.navbar a:hover {
-  background-color: #555;
-}
-
+    .navbar a:hover {
+      background-color: #555;
+    }
 
     .book-btn {
       display: inline-block;
@@ -40,74 +39,127 @@
       cursor: pointer;
       transition: background-color 0.3s ease, transform 0.2s ease;
     }
+
     .book-btn.premium {
-  background-color: purple;  
-}
+      background-color: purple;  
+    }
 
-.book-btn.gold {
-  background-color: gold; 
-}
+    .book-btn.gold {
+      background-color: gold; 
+    }
 
-.book-btn.silver {
-  background-color: silver; 
-}
-
-.book-btn:hover {
-  background-color: #333;  
-  transform: scale(1.05);
-}
-
+    .book-btn.silver {
+      background-color: silver; 
+    }
 
     .book-btn:hover {
-      background-color: #333;
+      background-color: #333;  
       transform: scale(1.05);
     }
 
-.package {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 20px;
-  background-color: #2a2a2a;
-  padding: 20px;
-  border-radius: 12px;
-  margin-bottom: 30px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  flex-direction: row-reverse;  /* Ensures the image is on the right */
-}
+    .package {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      background-color: #2a2a2a;
+      padding: 20px;
+      border-radius: 12px;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      flex-direction: row-reverse;
+    }
 
-.package-content {
-  flex: 1;
-  max-width: 70%;
-}
+    .package-content {
+      flex: 1;
+      max-width: 70%;
+    }
 
-.package-img {
-  width: 160px;
-  height: auto;
-  object-fit: cover;
-  border-radius: 8px;
-  flex-shrink: 0;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+    .package-img {
+      width: 160px;
+      height: auto;
+      object-fit: cover;
+      border-radius: 8px;
+      flex-shrink: 0;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
 
-.package:hover .package-img {
-  transform: scale(1.05);
-  box-shadow: 0 8px 16px rgba(255, 255, 255, 0.15);
-}
+    .package:hover .package-img {
+      transform: scale(1.05);
+      box-shadow: 0 8px 16px rgba(255, 255, 255, 0.15);
+    }
 
-@media (max-width: 768px) {
-  .package {
-    flex-direction: column;
-    align-items: flex-start;
-  }
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #121212;
+      color: white;
+      font-family: Arial, sans-serif;
+    }
 
-  .package-img {
-    width: 100%;
-    height: auto;
-    margin-top: 15px;
-  }
-}
+    header {
+      background-color: black;
+      color: white;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: bold;
+    }
+
+    .container {
+      max-width: 900px;
+      padding: 40px 20px;
+      margin: auto;
+    }
+
+    h1 {
+      font-size: 2em;
+      text-align: left;
+      margin-bottom: 30px;
+    }
+
+    .package-title {
+      font-size: 1.5em;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .premium {
+      color: purple;
+    }
+
+    .gold {
+      color: gold;
+    }
+
+    .silver {
+      color: silver;
+    }
+
+    .package-desc {
+      font-size: 1.2em;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 768px) {
+      .package {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .package-img {
+        width: 100%;
+        height: auto;
+        margin-top: 15px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -125,30 +177,36 @@
     <h1>Detailing Packages</h1>
 
     <div class="package">
-  <div class="package-title"><span class="premium">Premium</span> Package - $150</div>
-  <div class="package-desc">Gold package + Stain and Pet Hair Removal + Paint Decontamination</div>
-  <button class="book-btn premium" onclick="window.location.href='booking.html';">Book Now</button>
-</div>
-<img src="images/Mercedesfront.jpeg" alt="Premium Package Car" class="package-img" />
+      <div class="package-content">
+        <div class="package-title"><span class="premium">Premium</span> Package - $150</div>
+        <div class="package-desc">Gold package + Stain and Pet Hair Removal + Paint Decontamination</div>
+        <button class="book-btn premium" onclick="window.location.href='booking.html';">Book Now</button>
+      </div>
+      <img src="images/Mercedesfront.jpeg" alt="Premium Package Car" class="package-img" />
+    </div>
 
-<div class="package">
-  <div class="package-title"><span class="gold">Gold</span> Package - $115</div>
-  <div class="package-desc">Silver Package + Inside vacuum and light Chemical wipedown</div>
-  <button class="book-btn gold" onclick="window.location.href='booking.html';">Book Now</button>
-</div>
-<img src="images/Trishcarside.jpeg" alt="Gold Package Car" class="package-img" />
+    <div class="package">
+      <div class="package-content">
+        <div class="package-title"><span class="gold">Gold</span> Package - $115</div>
+        <div class="package-desc">Silver Package + Inside vacuum and light Chemical wipedown</div>
+        <button class="book-btn gold" onclick="window.location.href='booking.html';">Book Now</button>
+      </div>
+      <img src="images/Trishcarside.jpeg" alt="Gold Package Car" class="package-img" />
+    </div>
 
-<div class="package">
-  <div class="package-title"><span class="silver">Silver</span> Package - $50</div>
-  <div class="package-desc">Exterior Wash with 2–3 Ceramic Protectant + Safe Contact Wash</div>
-  <button class="book-btn silver" onclick="window.location.href='booking.html';">Book Now</button>
-</div>
-<img src="images/wheel.png" alt="Silver Package Car" class="package-img" />
-
+    <div class="package">
+      <div class="package-content">
+        <div class="package-title"><span class="silver">Silver</span> Package - $50</div>
+        <div class="package-desc">Exterior Wash with 2–3 Ceramic Protectant + Safe Contact Wash</div>
+        <button class="book-btn silver" onclick="window.location.href='booking.html';">Book Now</button>
+      </div>
+      <img src="images/wheel.png" alt="Silver Package Car" class="package-img" />
+    </div>
   </div>
 
 </body>
 </html>
+
 
 
 
