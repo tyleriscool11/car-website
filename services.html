@@ -4,97 +4,77 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Services</title>
-   <link rel="icon" href="images/logo-small.png" type="image/png">
+  <link rel="icon" href="images/logo-small.png" type="image/png">
 
   <style>
- 
-.navbar {
-  display: flex;
-  justify-content: center; 
-  align-items: center;      
-  width: 100%;
-  background-color: #000;  
-}
+    .navbar {
+      display: flex;
+      justify-content: center; 
+      align-items: center;      
+      width: 100%;
+      background-color: #000;  
+    }
 
-.navbar a {
-  color: white;
-  padding: 10px 15px;
-  text-decoration: none;
-  font-size: 18px;
-}
+    .navbar a {
+      color: white;
+      padding: 10px 15px;
+      text-decoration: none;
+      font-size: 18px;
+    }
 
-.navbar a:hover {
-  background-color: #555;   
-}
-
+    .navbar a:hover {
+      background-color: #555;   
+    }
 
     .book-btn {
-  display: inline-block;
-  margin-top: 15px;
-  padding: 10px 20px;
-  background-color: black;
-  color: white;
-  font-weight: bold;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-}
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 20px;
+      background-color: black;
+      color: white;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
 
-.book-btn:hover {
-  background-color: #333;
-  transform: scale(1.05);
-}
+    .book-btn:hover {
+      background-color: #333;
+      transform: scale(1.05);
+    }
 
-    
     .package {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 20px;
-  background-color: #2a2a2a;
-  padding: 20px;
-  border-radius: 12px;
-  margin-bottom: 30px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-}
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      background-color: #2a2a2a;
+      padding: 20px;
+      border-radius: 12px;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
 
+    .package-content {
+      flex: 1;
+      max-width: 70%; 
+    }
 
-.package-content {
-  flex: 1;
-  max-width: 70%; 
-}
+    .package-img {
+      width: 160px;
+      height: auto;
+      object-fit: cover;
+      border-radius: 8px;
+      flex-shrink: 0;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
 
+    .package:hover .package-img {
+      transform: scale(1.05);
+      box-shadow: 0 8px 16px rgba(255, 255, 255, 0.15);
+    }
 
-.package-img {
-  width: 160px;            
-  height: auto;              
-  object-fit: cover;
-  border-radius: 8px;
-  flex-shrink: 0;           
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-}
-
-.package:hover .package-img {
-  transform: scale(1.05);
-  box-shadow: 0 8px 16px rgba(255, 255, 255, 0.15);
-}
-
-    package-img {
-  width: 100%;
-  border-radius: 10px;
-  margin-bottom: 15px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-package:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.1);
-}
-
-    
     body {
       margin: 0;
       padding: 0;
@@ -120,25 +100,15 @@ package:hover {
     }
 
     .container {
-  max-width: 900px;
-  padding: 40px 20px;
-  margin: auto;
-
-
+      max-width: 900px;
+      padding: 40px 20px;
+      margin: auto;
     }
 
     h1 {
       font-size: 2em;
       text-align: left;
       margin-bottom: 30px;
-    }
-
-    .package {
-      background-color: #2a2a2a;
-      padding: 20px;
-      border-radius: 12px;
-      margin-bottom: 30px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     }
 
     .package-title {
@@ -163,25 +133,24 @@ package:hover {
       font-size: 1.2em;
       line-height: 1.5;
     }
+
     @media (max-width: 768px) {
-  .package {
-    flex-direction: column;
-    align-items: flex-start;
-  }
+      .package {
+        flex-direction: column;
+        align-items: flex-start;
+      }
 
-  .package-img {
-    width: 100%;
-    height: auto;
-    margin-top: 15px;
-  }
-}
-
+      .package-img {
+        width: 100%;
+        height: auto;
+        margin-top: 15px;
+      }
+    }
   </style>
 </head>
 <body>
 
   <header>
-    
     <nav>
       <a href="index.html">Home</a>
       <a href="services.html">Services</a>
@@ -197,30 +166,26 @@ package:hover {
       <div class="package-title"><span class="premium">Premium</span> Package - $150</div>
       <div class="package-desc">Gold package + Stain and Pet Hair Removal + Paint Decontamination</div>
       <button class="book-btn" onclick="window.location.href='booking.html';">Book Now</button>
-
     </div>
     <img src="images/Mercedesfront.jpeg" alt="Premium Package Car" class="package-img" />
-    </div>
-    
 
     <div class="package">
       <div class="package-title"><span class="gold">Gold</span> Package - $115</div>
       <div class="package-desc">Silver Package + Inside vacuum and light Chemical wipedown</div>
       <button class="book-btn" onclick="window.location.href='booking.html';">Book Now</button>
     </div>
-  <img src="images/Trishcarside.jpeg" alt="Gold Package Car" class="package-img" />
-  </div>
+    <img src="images/Trishcarside.jpeg" alt="Gold Package Car" class="package-img" />
 
     <div class="package">
       <div class="package-title"><span class="silver">Silver</span> Package - $50</div>
       <div class="package-desc">Exterior Wash with 2–3 Ceramic Protectant + Safe Contact Wash</div>
       <button class="book-btn" onclick="window.location.href='booking.html';">Book Now</button>
-
     </div>
-  <img src="images/wheel.png" alt="Silver Package Car" class="package-img" />
+    <img src="images/wheel.png" alt="Silver Package Car" class="package-img" />
   </div>
 
 </body>
 </html>
+
 
 
