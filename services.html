@@ -2,81 +2,124 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Services - SR Auto Detailing</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services - We Revive</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="favicon.png">
   <style>
-   <body style="margin: 0; font-family: Arial, sans-serif; background-color: #121212; color: white;">
-  <header style="background-color: black; padding: 1em 0; text-align: center;">
-    <nav>
-      <a href="index.html" style="margin: 0 15px; color: white; text-decoration: none; font-weight: bold;">Home</a>
-      <a href="services.html" style="margin: 0 15px; color: white; text-decoration: none; font-weight: bold;">Services</a>
-      <a href="gallery.html" style="margin: 0 15px; color: white; text-decoration: none; font-weight: bold;">Gallery</a>
-      <a href="contact.html" style="margin: 0 15px; color: white; text-decoration: none; font-weight: bold;">Contact</a>
-    </nav>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #111;
+      color: white;
+    }
+
+    header {
+      background-color: #000;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: white;
+      margin-left: 25px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    .nav-links a:hover {
+      color: #4da6ff;
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 32px;
+    }
+
+    .package {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #222;
+      margin: 30px auto;
+      padding: 20px;
+      width: 90%;
+      max-width: 1000px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px #000;
+    }
+
+    .package img {
+      width: 250px;
+      border-radius: 8px;
+      margin-left: 30px;
+    }
+
+    .package-text h2 {
+      margin-bottom: 10px;
+      color: #4da6ff;
+    }
+
+    .package-text p {
+      margin: 0;
+      font-size: 16px;
+    }
+
+    @media (max-width: 768px) {
+      .package {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .package img {
+        margin: 20px 0 0 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo" style="font-size: 20px; font-weight: bold;">We Revive</div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="contact.html">Contact</a>
+    </div>
   </header>
 
-  <main style="padding: 2em; text-align: center;">
-    <h1 style="color: white;">Detailing Packages</h1>
+  <h1>Detailing Packages</h1>
 
-    <section style="text-align: left; max-width: 800px; margin: 2em auto;">
+  <div class="package">
+    <div class="package-text">
       <h2>Premium Package - $150</h2>
       <p>Gold package + stain and pet hair remover + paint decontamination</p>
-      <img src="images/premium.jpg" alt="Premium Package" style="width: 100%; max-width: 400px; float: right; margin: 0 0 1em 1em;"/>
+    </div>
+  
+  </div>
 
-      <div style="clear: both;"></div>
-
+  <div class="package">
+    <div class="package-text">
       <h2>Gold Package - $115</h2>
       <p>Inside vacuum and light chemical wipedown + Silver Package</p>
-      <img src="images/gold.jpg" alt="Gold Package" style="width: 100%; max-width: 400px; float: right; margin: 0 0 1em 1em;"/>
+    </div>
+    
+  </div>
 
-      <div style="clear: both;"></div>
-
+  <div class="package">
+    <div class="package-text">
       <h2>Silver Package - $50</h2>
       <p>Exterior wash with 2–3 ceramic protectant + safe contact wash</p>
-      <img src="images/silver.jpg" alt="Silver Package" style="width: 100%; max-width: 400px; float: right; margin: 0 0 1em 1em;"/>
-    </section>
-  </main>
-</body>
-
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="services.html">Services</a>
-    <a href="gallery.html">Gallery</a>
-    <a href="contact.html">Contact</a>
-  </nav>
-
-  <h1 style="text-align: center; margin-top: 20px;">Detailing Packages</h1>
-
-  <div class="package">
-    <div class="package-info">
-      <h2 class="premium">Premium Package - $150</h2>
-      <p>Gold package + stain and pet hair remover + paint decontamination</p>
     </div>
-    <div class="package-img">
-      
-    </div>
-  </div>
-
-  <div class="package">
-    <div class="package-info">
-      <h2 class="gold">Gold Package - $115</h2>
-      <p>Inside vacuum and light chemical wipedown + <span class="silver">Silver Package</span></p>
-    </div>
-    <div class="package-img">
-      
-    </div>
-  </div>
-
-  <div class="package">
-    <div class="package-info">
-      <h2 class="silver">Silver Package - $50</h2>
-      <p>Exterior wash with 2–3 ceramic protectant + safe contact wash</p>
-    </div>
-    <div class="package-img">
-      
-    </div>
+   
   </div>
 
 </body>
 </html>
+
