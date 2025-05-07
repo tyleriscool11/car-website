@@ -9,20 +9,17 @@
       margin: 0;
       padding: 0;
       background-color: #121212;
-      font-family: Arial, sans-serif;
       color: white;
+      font-family: Arial, sans-serif;
     }
 
     header {
-      background-color: #000;
-      padding: 1rem 2rem;
+      background-color: black;
+      color: white;
+      padding: 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-    }
-
-    header h1 {
-      font-size: 1.2rem;
     }
 
     nav a {
@@ -32,37 +29,29 @@
       font-weight: bold;
     }
 
-    main {
-      padding: 2rem;
-      display: flex;
-      justify-content: flex-start;
+    .container {
+      max-width: 600px;
+      padding: 40px 20px;
     }
 
-    .services-container {
-      width: 50%;
-    }
-
-    h2 {
-      text-align: center;
-      margin-bottom: 2rem;
+    h1 {
+      font-size: 2em;
+      text-align: left;
+      margin-bottom: 30px;
     }
 
     .package {
-      background-color: #1e1e1e;
-      padding: 1.5rem;
-      margin-bottom: 1.5rem;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+      background-color: #2a2a2a;
+      padding: 20px;
+      border-radius: 12px;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     }
 
-    .package h3 {
-      font-size: 1.6rem;
-      margin-bottom: 0.8rem;
-      color: white;
-    }
-
-    .package span {
+    .package-title {
+      font-size: 1.5em;
       font-weight: bold;
+      margin-bottom: 10px;
     }
 
     .premium {
@@ -77,16 +66,16 @@
       color: silver;
     }
 
-    .description {
-      font-size: 1.2rem;
-      line-height: 1.6;
-      color: white;
+    .package-desc {
+      font-size: 1.2em;
+      line-height: 1.5;
     }
   </style>
 </head>
 <body>
+
   <header>
-    <h1>We Revive</h1>
+    <div><strong>We Revive</strong></div>
     <nav>
       <a href="index.html">Home</a>
       <a href="services.html">Services</a>
@@ -95,26 +84,25 @@
     </nav>
   </header>
 
-  <main>
-    <div class="services-container">
-      <h2>Detailing Packages</h2>
+  <div class="container">
+    <h1>Detailing Packages</h1>
 
-      <div class="package">
-        <h3><span class="premium">Premium</span> Package - <span style="font-size: 1.4rem;">$150</span></h3>
-        <p class="description">Gold package + stain and pet hair remover + paint decontamination</p>
-      </div>
-
-      <div class="package">
-        <h3><span class="gold">Gold</span> Package - <span style="font-size: 1.4rem;">$115</span></h3>
-        <p class="description">Inside vacuum and light chemical wipedown + Silver Package</p>
-      </div>
-
-      <div class="package">
-        <h3><span class="silver">Silver</span> Package - <span style="font-size: 1.4rem;">$50</span></h3>
-        <p class="description">Exterior wash with 2–3 ceramic protectant + safe contact wash</p>
-      </div>
+    <div class="package">
+      <div class="package-title"><span class="premium">Premium</span> Package - $150</div>
+      <div class="package-desc">Gold package + stain and pet hair remover + paint decontamination</div>
     </div>
-  </main>
+
+    <div class="package">
+      <div class="package-title"><span class="gold">Gold</span> Package - $115</div>
+      <div class="package-desc">Inside vacuum and light chemical wipedown + Silver Package</div>
+    </div>
+
+    <div class="package">
+      <div class="package-title"><span class="silver">Silver</span> Package - $50</div>
+      <div class="package-desc">Exterior wash with 2–3 ceramic protectant + safe contact wash</div>
+    </div>
+  </div>
+
 </body>
 </html>
 
