@@ -4,17 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Contact Us - SR Auto Detailing</title>
-  <link rel="icon" href="images/logo-small.png" type="image/png">
+  <link rel="icon" href="images/logo-small.png" type="image/png" />
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: #121212;
+      background-color: #121212;
+      color: white;
       margin: 0;
       padding: 0;
-      color: white;
     }
 
-    /* Navbar styles */
+    /* Navbar */
     .navbar {
       background-color: #000;
       padding: 15px 20px;
@@ -74,7 +74,7 @@
       }
     }
 
-    /* Form styles */
+    /* Container */
     .container {
       max-width: 600px;
       margin: 60px auto;
@@ -89,6 +89,7 @@
       margin-bottom: 25px;
     }
 
+    /* Form */
     form {
       display: flex;
       flex-direction: column;
@@ -123,6 +124,7 @@
       background: #0056b3;
     }
 
+    /* Social links */
     .social {
       margin-top: 30px;
       text-align: center;
@@ -138,6 +140,7 @@
 </head>
 <body>
 
+  <!-- Navigation -->
   <nav class="navbar">
     <div class="hamburger" onclick="toggleMenu()">
       <span></span>
@@ -152,17 +155,18 @@
     </div>
   </nav>
 
+  <!-- Contact Form Container -->
   <div class="container">
     <h1>Contact Us</h1>
-    <form>
+    <form action="https://formspree.io/f/yourcode" method="POST">
       <label for="name">Name</label>
-      <input id="name" type="text" placeholder="Your name" required />
+      <input id="name" name="name" type="text" placeholder="Your name" required />
 
       <label for="email">Email</label>
-      <input id="email" type="email" placeholder="Your email" required />
+      <input id="email" name="email" type="email" placeholder="Your email" required />
 
       <label for="message">Message</label>
-      <textarea id="message" rows="5" placeholder="Your message" required></textarea>
+      <textarea id="message" name="message" rows="5" placeholder="Your message" required></textarea>
 
       <button type="submit">Send Message</button>
     </form>
@@ -174,11 +178,14 @@
     </div>
   </div>
 
+  <!-- Hamburger Toggle Script -->
   <script>
     function toggleMenu() {
       document.getElementById("navLinks").classList.toggle("active");
     }
   </script>
+
 </body>
 </html>
+
 
