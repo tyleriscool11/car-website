@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact Us - SR Auto Detailing</title>
   <link rel="icon" href="images/logo-small.png" type="image/png" />
   <style>
@@ -22,21 +22,40 @@
       justify-content: space-between;
       align-items: center;
       position: relative;
+      z-index: 1000;
     }
 
     .nav-links {
+      display: none;
+      flex-direction: column;
+      background: #000;
+      position: absolute;
+      top: 60px;
+      left: 20px;
+      padding: 10px;
+      border: 1px solid #333;
+      border-radius: 8px;
+    }
+
+    .nav-links.active {
       display: flex;
-      gap: 20px;
     }
 
     .nav-links a {
       color: white;
       text-decoration: none;
       font-weight: bold;
+      padding: 8px 12px;
+      white-space: nowrap;
+    }
+
+    .nav-links a:hover {
+      background-color: #333;
+      border-radius: 4px;
     }
 
     .hamburger {
-      display: none;
+      display: flex;
       flex-direction: column;
       cursor: pointer;
     }
@@ -46,32 +65,6 @@
       height: 3px;
       margin: 4px 0;
       width: 25px;
-    }
-
-    @media (max-width: 768px) {
-      .nav-links {
-        display: none;
-        flex-direction: column;
-        background: #000;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        width: 100%;
-        padding: 15px 0;
-      }
-
-      .nav-links a {
-        padding: 10px;
-        text-align: center;
-      }
-
-      .nav-links.active {
-        display: flex;
-      }
-
-      .hamburger {
-        display: flex;
-      }
     }
 
     /* Container */
@@ -136,6 +129,15 @@
       color: #00bfff;
       text-decoration: none;
     }
+
+    @media (min-width: 769px) {
+      .nav-links {
+        position: absolute;
+        left: auto;
+        right: 20px;
+        top: 60px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -178,14 +180,23 @@
     </div>
   </div>
 
-  <!-- Hamburger Toggle Script -->
+  <!-- Script -->
   <script>
     function toggleMenu() {
       document.getElementById("navLinks").classList.toggle("active");
     }
+
+    document.addEventListener("click", function (e) {
+      const nav = document.getElementById("navLinks");
+      const burger = document.querySelector(".hamburger");
+      if (!nav.contains(e.target) && !burger.contains(e.target)) {
+        nav.classList.remove("active");
+      }
+    });
   </script>
 
 </body>
 </html>
+
 
 
