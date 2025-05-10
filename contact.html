@@ -32,6 +32,24 @@
     .nav-left {
       display: flex;
       align-items: center;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      line-height: 1;
+    }
+
+    .brand .main-title {
+      font-size: 18px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .brand .subtitle {
+      font-size: 12px;
+      color: #aaa;
     }
 
     .nav-links {
@@ -148,7 +166,6 @@
 
     @media (min-width: 769px) {
       .nav-links {
-        position: absolute;
         left: auto;
         right: 20px;
         top: 60px;
@@ -172,8 +189,11 @@
         <a href="gallery.html">Gallery</a>
         <a href="contact.html">Contact</a>
       </div>
+      <div class="brand">
+        <div class="main-title">SUPREME REVIVE</div>
+        <div class="subtitle">Auto Detailing</div>
+      </div>
     </div>
-    <!-- Call icon -->
     <a href="tel:2108703203" class="call-icon" title="Call Us">📞</a>
   </nav>
 
