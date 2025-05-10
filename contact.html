@@ -2,16 +2,16 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact Us - SR Auto Detailing</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact - SR Auto Detailing</title>
   <link rel="icon" href="images/logo-small.png" type="image/png" />
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #121212;
-      color: white;
       margin: 0;
       padding: 0;
+      background-color: #121212;
+      color: white;
+      font-family: Arial, sans-serif;
     }
 
     .navbar {
@@ -25,7 +25,7 @@
       left: 0;
       width: 100%;
       z-index: 1000;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
     }
 
     .nav-left {
@@ -40,23 +40,24 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      line-height: 1;
+      line-height: 1.2;
     }
 
-    .nav-center .main-title {
-      font-size: 18px;
+    .main-title {
+      font-size: 26px;
       font-weight: bold;
-      letter-spacing: 1px;
+      letter-spacing: 2px;
     }
 
-    .nav-center .subtitle {
-      font-size: 12px;
+    .subtitle {
+      font-size: 16px;
       color: #aaa;
+      letter-spacing: 1px;
     }
 
     .call-icon {
       position: absolute;
-      right: 20px;
+      right: 15px;
       font-size: 24px;
       color: #00bfff;
       text-decoration: none;
@@ -103,14 +104,9 @@
       white-space: nowrap;
     }
 
-    .nav-links a:hover {
-      background-color: #333;
-      border-radius: 4px;
-    }
-
     .container {
       max-width: 600px;
-      margin: 120px auto 60px;
+      margin: 120px auto 40px;
       background: #1e1e1e;
       padding: 30px;
       border-radius: 10px;
@@ -174,9 +170,7 @@
   <nav class="navbar">
     <div class="nav-left">
       <div class="hamburger" onclick="toggleMenu()">
-        <span></span>
-        <span></span>
-        <span></span>
+        <span></span><span></span><span></span>
       </div>
       <div class="nav-links" id="navLinks">
         <a href="index.html">Home</a>
@@ -189,7 +183,7 @@
       <div class="main-title">SUPREME REVIVE</div>
       <div class="subtitle">Auto Detailing</div>
     </div>
-    <a href="tel:2108703203" class="call-icon" title="Call Us">📞</a>
+    <a href="tel:2108703203" class="call-icon">📞</a>
   </nav>
 
   <div class="container">
