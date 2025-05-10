@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact Us - SR Auto Detailing</title>
+  <title>SR Auto Detailing</title>
   <link rel="icon" href="images/logo-small.png" type="image/png" />
   <style>
-    body {
+    body, html {
+      margin: 0;
+      padding: 0;
       font-family: Arial, sans-serif;
       background-color: #121212;
       color: white;
-      margin: 0;
-      padding: 0;
     }
 
     .navbar {
@@ -25,7 +25,7 @@
       left: 0;
       width: 100%;
       z-index: 1000;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
     }
 
     .nav-left {
@@ -108,64 +108,78 @@
       border-radius: 4px;
     }
 
-    .container {
-      max-width: 600px;
-      margin: 120px auto 60px;
-      background: #1e1e1e;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    .background {
+      background: url('images/Mercedesfront.jpeg') no-repeat center center/cover;
+      position: relative;
+      height: 100vh;
     }
 
-    h1 {
-      text-align: center;
-      margin-bottom: 25px;
+    .overlay {
+      background: linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0.2));
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
     }
 
-    form {
+    .content {
+      position: relative;
+      z-index: 1;
+      height: 100%;
       display: flex;
       flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0 20px;
+      margin-top: 80px;
     }
 
-    label {
-      margin-bottom: 5px;
-      font-weight: bold;
+    .content h1 {
+      font-size: 3rem;
+      text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+      margin-bottom: 15px;
+      animation: fadeInUp 1s ease-in-out;
     }
 
-    input, textarea {
-      padding: 10px;
-      margin-bottom: 20px;
-      border: none;
-      border-radius: 5px;
-      background: #2a2a2a;
+    .tagline {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+      color: #ccc;
+      text-shadow: 1px 1px 4px #000;
+    }
+
+    .cta-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .cta-btn {
+      padding: 15px 30px;
+      background-color: #000;
       color: white;
-    }
-
-    button {
-      background: #007bff;
-      color: white;
-      padding: 12px;
-      border: none;
-      border-radius: 5px;
+      border: 2px solid transparent;
+      border-radius: 10px;
+      text-decoration: none;
       font-weight: bold;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-
-    button:hover {
-      background: #0056b3;
-    }
-
-    .social {
-      margin-top: 30px;
+      transition: all 0.3s ease;
+      width: 220px;
       text-align: center;
     }
 
-    .social a {
-      display: block;
-      margin: 10px 0;
-      color: #00bfff;
-      text-decoration: none;
+    .cta-btn:hover {
+      background-color: white;
+      color: red;
+      border: 2px solid red;
+      transform: scale(1.05);
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
@@ -192,25 +206,16 @@
     <a href="tel:2108703203" class="call-icon" title="Call Us">📞</a>
   </nav>
 
-  <div class="container">
-    <h1>Contact Us</h1>
-    <form action="https://formspree.io/f/yourcode" method="POST">
-      <label for="name">Name</label>
-      <input id="name" name="name" type="text" placeholder="Your name" required />
-
-      <label for="email">Email</label>
-      <input id="email" name="email" type="email" placeholder="Your email" required />
-
-      <label for="message">Message</label>
-      <textarea id="message" name="message" rows="5" placeholder="Your message" required></textarea>
-
-      <button type="submit">Send Message</button>
-    </form>
-
-    <div class="social">
-      <a href="https://instagram.com/srautodetailingco" target="_blank">📸 Instagram: @srautodetailingco</a>
-      <a href="tel:2108703203">📞 Phone: 210-870-3203</a>
-      <a href="https://facebook.com" target="_blank">📘 Facebook: Supreme Revive Auto Detailing</a>
+  <div class="background">
+    <div class="overlay"></div>
+    <div class="content">
+      <h1>Supreme Revive Auto Detailing</h1>
+      <p class="tagline">“Premium Quality · Affordable Price · Supreme Results”</p>
+      <div class="cta-buttons">
+        <a href="services.html" class="cta-btn">View Services</a>
+        <a href="gallery.html" class="cta-btn">View Gallery</a>
+        <a href="contact.html" class="cta-btn">Contact Us</a>
+      </div>
     </div>
   </div>
 
@@ -231,6 +236,8 @@
 
 </body>
 </html>
+
+
 
 
 
