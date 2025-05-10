@@ -18,37 +18,53 @@
       background-color: #000;
       padding: 15px 20px;
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
       align-items: center;
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       z-index: 1000;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
     }
 
     .nav-left {
+      position: absolute;
+      left: 20px;
       display: flex;
       align-items: center;
       gap: 20px;
     }
 
-    .brand {
+    .nav-center {
       display: flex;
       flex-direction: column;
-      line-height: 1;
+      align-items: center;
+      line-height: 1.2;
     }
 
-    .brand .main-title {
-      font-size: 18px;
+    .nav-center .main-title {
+      font-size: 26px;
       font-weight: bold;
+      letter-spacing: 2px;
+    }
+
+    .nav-center .subtitle {
+      font-size: 16px;
+      color: #aaa;
       letter-spacing: 1px;
     }
 
-    .brand .subtitle {
-      font-size: 12px;
-      color: #aaa;
+    .call-icon {
+      position: absolute;
+      right: 15px;
+      font-size: 24px;
+      color: #00bfff;
+      text-decoration: none;
+    }
+
+    .call-icon:hover {
+      color: #00ffff;
     }
 
     .hamburger {
@@ -86,22 +102,6 @@
       font-weight: bold;
       padding: 8px 12px;
       white-space: nowrap;
-    }
-
-    .nav-links a:hover {
-      background-color: #333;
-      border-radius: 4px;
-    }
-
-    .call-icon {
-      font-size: 24px;
-      color: #00bfff;
-      text-decoration: none;
-      margin-right: 10px;
-    }
-
-    .call-icon:hover {
-      color: #00ffff;
     }
 
     .container {
@@ -205,13 +205,10 @@
 </head>
 <body>
 
-  <!-- Navbar -->
   <nav class="navbar">
     <div class="nav-left">
       <div class="hamburger" onclick="toggleMenu()">
-        <span></span>
-        <span></span>
-        <span></span>
+        <span></span><span></span><span></span>
       </div>
       <div class="nav-links" id="navLinks">
         <a href="index.html">Home</a>
@@ -219,15 +216,14 @@
         <a href="gallery.html">Gallery</a>
         <a href="contact.html">Contact</a>
       </div>
-      <div class="brand">
-        <div class="main-title">SUPREME REVIVE</div>
-        <div class="subtitle">Auto Detailing</div>
-      </div>
     </div>
-    <a href="tel:2108703203" class="call-icon" title="Call Us">📞</a>
+    <div class="nav-center">
+      <div class="main-title">SUPREME REVIVE</div>
+      <div class="subtitle">Auto Detailing</div>
+    </div>
+    <a href="tel:2108703203" class="call-icon">📞</a>
   </nav>
 
-  <!-- Content -->
   <div class="container">
     <h1>Detailing Packages</h1>
 
@@ -268,7 +264,6 @@
       const nav = document.getElementById("navLinks");
       const burger = document.querySelector(".hamburger");
       const call = document.querySelector(".call-icon");
-
       if (!nav.contains(e.target) && !burger.contains(e.target) && !call.contains(e.target)) {
         nav.classList.remove("active");
       }
@@ -277,8 +272,6 @@
 
 </body>
 </html>
-
-
 
 
 
