@@ -6,177 +6,103 @@
   <title>SR Auto Detailing</title>
   <link rel="icon" href="images/logo-small.png" type="image/png" />
   <style>
+    /* — Reset & Base — */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body, html {
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-      background-color: #121212;
-      color: white;
+      width: 100%; height: 100%;
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      color: #fff;
+      background: #000;
     }
+    a { text-decoration: none; }
 
-    /* NAVBAR STYLES */
+    /* — Navbar — */
     .navbar {
-      background-color: #ffffff;
-      padding: 15px 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 1000;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      position: fixed; top: 0; left: 0; width: 100%;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0.75rem 1rem;
+      background: rgba(255,255,255,0.95);
+      z-index: 10;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
     }
-
-    .nav-left {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-    }
-
-    .hamburger {
-      display: flex;
-      flex-direction: column;
-      cursor: pointer;
-    }
-
+    .nav-left { display: flex; align-items: center; gap: 1rem; }
+    .hamburger { display: flex; flex-direction: column; gap: 4px; cursor: pointer; }
     .hamburger span {
-      background: #000000;
-      height: 3px;
-      margin: 4px 0;
-      width: 25px;
+      width: 24px; height: 3px; background: #333; border-radius: 2px;
+      transition: background 0.2s;
     }
+    .hamburger:hover span { background: #666; }
 
     .nav-links {
-      display: none;
-      flex-direction: column;
-      background: #ffffff;
-      position: absolute;
-      top: 60px;
-      left: 15px;
-      padding: 10px;
-      border: 1px solid #ddd;
-      border-radius: 8px;
+      position: absolute; top: 56px; left: 1rem;
+      background: #fff; border-radius: 8px; overflow: hidden;
+      display: none; flex-direction: column; box-shadow: 0 2px 8px rgba(0,0,0,0.2);
     }
-
-    .nav-links.active {
-      display: flex;
-    }
-
+    .nav-links.active { display: flex; }
     .nav-links a {
-      color: #000000;
-      text-decoration: none;
-      font-weight: bold;
-      padding: 8px 12px;
-      white-space: nowrap;
+      padding: 0.75rem 1.5rem;
+      color: #333; font-weight: 600;
     }
-
-    .nav-links a:hover {
-      background-color: #f0f0f0;
-      border-radius: 4px;
-    }
+    .nav-links a:hover { background: #f2f2f2; }
 
     .nav-center {
-      text-align: center;
-      line-height: 1.2;
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none; text-align: center;
     }
-
-    .main-title {
-      font-size: 28px;
-      font-weight: bold;
-      letter-spacing: 2px;
-      color: #000000;
-      white-space: nowrap;
+    .nav-center .main-title {
+      font-size: 1.25rem; font-weight: 700; color: #111;
     }
-
-    .subtitle {
-      font-size: 16px;
-      color: #333333;
-      letter-spacing: 1px;
+    .nav-center .subtitle {
+      font-size: 0.875rem; color: #555;
     }
 
     .call-icon {
-      font-size: 24px;
-      color: #000000;
-      text-decoration: none;
+      font-size: 1.5rem; color: #333; cursor: pointer;
+      transition: color 0.2s;
     }
+    .call-icon:hover { color: #777; }
 
-    .call-icon:hover {
-      color: #555555;
-    }
-
-    /* HERO SECTION */
-    .background {
-      background: url('images/Mercedesfront.jpeg') no-repeat center center/cover;
+    /* — Hero — */
+    .hero {
       position: relative;
       height: 100vh;
-    }
-
-    .overlay {
-      background: linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0.2));
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 100%;
-    }
-
-    .content {
-      position: relative;
-      z-index: 1;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+      background: url('images/Mercedesfront.jpeg') no-repeat center/cover;
+      display: flex; align-items: center; justify-content: center;
       text-align: center;
-      padding: 0 20px;
-      margin-top: 80px;
     }
-
-    .content h1 {
-      font-size: 3rem;
-      text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
-      margin-bottom: 15px;
-      animation: fadeInUp 1s ease-in-out;
+    .hero::before {
+      content: '';
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.5);
     }
-
-    .tagline {
-      font-size: 1.2rem;
-      margin-bottom: 30px;
-      color: #ccc;
-      text-shadow: 1px 1px 4px #000;
+    .hero-content {
+      position: relative; z-index: 1;
+      max-width: 90%; width: 600px;
+      animation: fadeInUp 1s ease-out;
     }
-
+    .hero-content h1 {
+      font-size: 2.75rem; margin-bottom: 0.5rem;
+      letter-spacing: 1px; line-height: 1.1;
+    }
+    .hero-content p {
+      font-size: 1rem; margin-bottom: 2rem;
+      color: #ddd;
+    }
     .cta-buttons {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      align-items: center;
+      display: grid; gap: 1rem;
     }
-
     .cta-btn {
-      padding: 12px 30px;
-      background-color: red;
-      color: white;
-      border: none;
-      border-radius: 0;
-      text-decoration: none;
-      font-weight: bold;
-      transition: all 0.3s ease;
-      width: 320px;
-      text-align: center;
+      padding: 0.75rem;
+      background: #e30613;
+      color: #fff;
+      font-size: 1rem; font-weight: 600;
+      border-radius: 4px;
+      transition: background 0.3s, transform 0.2s;
     }
-
     .cta-btn:hover {
-      background-color: white;
-      color: red;
-      border: 2px solid red;
-      transform: scale(1.05);
+      background: #fff; color: #e30613;
+      transform: translateY(-2px);
     }
 
     @keyframes fadeInUp {
@@ -184,10 +110,10 @@
       to   { opacity: 1; transform: translateY(0); }
     }
 
-    @media (max-width: 600px) {
-      .main-title { font-size: 22px; }
-      .subtitle   { font-size: 14px; }
-      .cta-btn    { width: 100%; max-width: 320px; }
+    /* — Responsive tweaks — */
+    @media (max-width: 700px) {
+      .hero-content h1 { font-size: 2rem; }
+      .cta-btn { font-size: 0.9rem; }
     }
   </style>
 </head>
@@ -196,9 +122,7 @@
   <nav class="navbar">
     <div class="nav-left">
       <div class="hamburger" onclick="toggleMenu()">
-        <span></span>
-        <span></span>
-        <span></span>
+        <span></span><span></span><span></span>
       </div>
       <div class="nav-links" id="navLinks">
         <a href="index.html">Home</a>
@@ -213,39 +137,36 @@
       <div class="subtitle">Auto Detailing</div>
     </div>
 
-    <a href="tel:2108703203" class="call-icon" title="Call Us">📞</a>
+    <a href="tel:2108703203" class="call-icon" title="Call us">📞</a>
   </nav>
 
-  <div class="background">
-    <div class="overlay"></div>
-    <div class="content">
+  <section class="hero">
+    <div class="hero-content">
       <h1>Supreme Revive Auto Detailing</h1>
-      <p class="tagline">“Premium Quality · Affordable Price · Supreme Results”</p>
+      <p>“Premium Quality · Affordable Price · Supreme Results”</p>
       <div class="cta-buttons">
         <a href="services.html" class="cta-btn">View Services</a>
         <a href="gallery.html" class="cta-btn">View Gallery</a>
         <a href="contact.html" class="cta-btn">Contact Us</a>
       </div>
     </div>
-  </div>
+  </section>
 
   <script>
     function toggleMenu() {
-      document.getElementById("navLinks").classList.toggle("active");
+      document.getElementById('navLinks').classList.toggle('active');
     }
-    document.addEventListener("click", function (e) {
-      const nav    = document.getElementById("navLinks");
-      const burger = document.querySelector(".hamburger");
-      const call   = document.querySelector(".call-icon");
+    document.addEventListener('click', e => {
+      const nav   = document.getElementById('navLinks'),
+            burger = document.querySelector('.hamburger'),
+            call   = document.querySelector('.call-icon');
       if (!nav.contains(e.target) && !burger.contains(e.target) && !call.contains(e.target)) {
-        nav.classList.remove("active");
+        nav.classList.remove('active');
       }
     });
   </script>
 
 </body>
 </html>
-
-
 
 
