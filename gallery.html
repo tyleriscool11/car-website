@@ -2,88 +2,80 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Gallery - SR Auto Detailing</title>
   <link rel="icon" href="images/logo-small.png" type="image/png" />
   <style>
-    /* Reset & Base Styles */
+    /* Reset & Base */
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: Arial, sans-serif;
-      background-color: #ffffff;
-      color: #000000;
+      background-color: #fff;
+      color: #000;
       line-height: 1.5;
     }
 
     /* Navbar */
     .navbar {
-      background-color: #ffffff;
+      background-color: #fff;
       padding: 15px 20px;
       display: flex;
       justify-content: center;
       align-items: center;
       position: fixed;
-      top: 0;
-      left: 0;
+      top: 0; left: 0;
       width: 100%;
       z-index: 1000;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
-    .nav-left { position: absolute; left: 20px; display: flex; align-items: center; gap: 20px; }
+    .nav-left {
+      position: absolute; left: 20px;
+      display: flex; align-items: center; gap: 20px;
+    }
     .hamburger { display: flex; flex-direction: column; cursor: pointer; }
     .hamburger span { background: #000; height: 3px; margin: 4px 0; width: 25px; }
     .nav-links {
       display: none;
       flex-direction: column;
-      background: #ffffff;
-      position: absolute;
-      top: 60px;
-      left: 20px;
-      border: 1px solid #ddd;
-      border-radius: 8px;
+      position: absolute; top: 60px; left: 20px;
+      background: #fff; border: 1px solid #ddd; border-radius: 8px;
       overflow: hidden;
     }
     .nav-links.active { display: flex; }
     .nav-links a {
-      padding: 10px 15px;
-      color: #000;
-      text-decoration: none;
-      font-weight: bold;
-      white-space: nowrap;
+      padding: 10px 15px; color: #000; text-decoration: none;
+      font-weight: bold; white-space: nowrap;
     }
     .nav-links a:hover { background: #f0f0f0; }
     .nav-center {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      line-height: 1.2;
-      pointer-events: none;
+      display: flex; flex-direction: column; align-items: center;
+      line-height: 1.2; pointer-events: none;
     }
     .main-title { font-size: 26px; font-weight: bold; letter-spacing: 2px; }
-    .subtitle   { font-size: 16px; color: #555555; letter-spacing: 1px; }
-    .call-icon  { position: absolute; right: 15px; font-size: 24px; color: #000; text-decoration: none; }
+    .subtitle   { font-size: 16px; color: #555; letter-spacing: 1px; }
+    .call-icon  { position: absolute; right: 15px; font-size: 24px; color: #000; }
     .call-icon:hover { color: #555; }
 
     /* Page Title */
-    .container { max-width: 1100px; margin: 120px auto 60px; padding: 0 20px; }
+    .container {
+      max-width: 1100px;
+      margin: 120px auto 60px;
+      padding: 0 20px;
+    }
     h1 {
       text-align: center;
       margin-bottom: 40px;
       font-size: 2.5rem;
-      color: black;
     }
 
-    /* Gallery Grid */
+    /* Gallery Layout */
     .gallery {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 40px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
+      gap: 30px;
     }
     .photo {
       position: relative;
-      width: 100%;
-      max-width: 400px;
       border-radius: 10px;
       overflow: hidden;
       background: #000;
@@ -95,26 +87,26 @@
     }
     .label {
       position: absolute;
-      top: 10px;
-      left: 10px;
+      top: 10px; left: 10px;
       padding: 5px 10px;
-      background: rgba(0, 0, 0, 0.7);
+      background: rgba(0,0,0,0.7);
       color: #fff;
       font-size: 14px;
       font-weight: bold;
       border-radius: 4px;
     }
-    .photo.right .label { left: auto; right: 10px; }
+    .photo.right .label {
+      left: auto; right: 10px;
+    }
 
-    /* Responsive Nav tweak */
     @media (max-width: 480px) {
-      .main-title { font-size: 22px; }
-      .subtitle   { font-size: 14px; }
-      .gallery { gap: 20px; }
+      .nav-center .main-title { font-size: 22px; }
+      .nav-center .subtitle   { font-size: 14px; }
     }
   </style>
 </head>
 <body>
+
   <nav class="navbar">
     <div class="nav-left">
       <div class="hamburger" onclick="toggleMenu()">
@@ -137,6 +129,7 @@
   <div class="container">
     <h1>Gallery</h1>
     <div class="gallery">
+      <!-- Before/After Pairs -->
       <div class="photo left">
         <img src="images/trunkbeforebenz.JPG" alt="Before Trunk">
         <div class="label">Before</div>
@@ -145,6 +138,7 @@
         <img src="images/trunkbenzafter.JPG" alt="After Trunk">
         <div class="label">After</div>
       </div>
+
       <div class="photo left">
         <img src="images/aricarbefore.jpg" alt="Before Interior">
         <div class="label">Before</div>
@@ -153,7 +147,24 @@
         <img src="images/aricarafter.jpg" alt="After Interior">
         <div class="label">After</div>
       </div>
-      <!-- Repeat for any other before/after pairs -->
+
+      <div class="photo left">
+        <img src="images/seatbeforeari.jpg" alt="Before Seats">
+        <div class="label">Before</div>
+      </div>
+      <div class="photo right">
+        <img src="images/seatafterari.jpg" alt="After Seats">
+        <div class="label">After</div>
+      </div>
+
+      <div class="photo left">
+        <img src="images/chargerbefore.jpg" alt="Before Car">
+        <div class="label">Before</div>
+      </div>
+      <div class="photo right">
+        <img src="images/chargerafer.jpg" alt="After Car">
+        <div class="label">After</div>
+      </div>
     </div>
   </div>
 
@@ -161,17 +172,19 @@
     function toggleMenu() {
       document.getElementById('navLinks').classList.toggle('active');
     }
-    document.addEventListener('click', function (e) {
-      const nav = document.getElementById('navLinks');
-      const burger = document.querySelector('.hamburger');
-      const call = document.querySelector('.call-icon');
+    document.addEventListener('click', function(e) {
+      const nav = document.getElementById('navLinks'),
+            burger = document.querySelector('.hamburger'),
+            call = document.querySelector('.call-icon');
       if (!nav.contains(e.target) && !burger.contains(e.target) && !call.contains(e.target)) {
         nav.classList.remove('active');
       }
     });
   </script>
+
 </body>
 </html>
+
 
 
 
