@@ -20,8 +20,7 @@
     .nav-left { display: flex; gap: 15px; }
     .hamburger { display: flex; flex-direction: column; cursor: pointer; }
     .hamburger span { background: #000; height: 3px; margin: 3px 0; width: 25px; }
-    .nav-links {
-      display: none; position: absolute; top: 60px; left: 15px;
+    .nav-links { display: none; position: absolute; top: 60px; left: 15px;
       background: #fff; border-radius: 8px; overflow: hidden; flex-direction: column;
     }
     .nav-links.active { display: flex; }
@@ -55,6 +54,7 @@
     /* Card */
     .card {
       background: #1f1f1f;
+      color: #fff;
       border-radius: 8px; overflow: hidden;
       display: flex; flex-direction: column;
       box-shadow: 0 4px 12px rgba(0,0,0,0.5);
@@ -80,7 +80,7 @@
       display: flex; flex-direction: column;
     }
     .card-title {
-      font-size: 1.5rem; margin-bottom: .75rem;
+      font-size: 1.5rem; margin-bottom: .75rem; color: #fff;
     }
     .card-desc {
       flex: 1; line-height: 1.5; color: #ddd;
@@ -141,7 +141,7 @@
       <div class="card card-premium">
         <img src="images/Mercedesfront.jpeg" alt="Premium Package Car">
         <div class="card-body">
-          <div class="card-title"><span class="accent-premium">PREMIUM</span> <strong>Package</strong> — $150</div>
+          <div class="card-title"><span class="accent-premium">PREMIUM</span> <strong>Package — $150</strong></div>
           <div class="card-desc">Gold package + Stain and Pet Hair Removal + Paint Decontamination</div>
           <a href="booking.html" class="btn btn-premium">Book Now</a>
         </div>
@@ -151,7 +151,7 @@
       <div class="card card-gold">
         <img src="images/Trishcarside.jpeg" alt="Gold Package Car">
         <div class="card-body">
-          <div class="card-title"><span class="accent-gold">GOLD</span> <strong>Package</strong> — $115</div>
+          <div class="card-title"><span class="accent-gold">GOLD</span> <strong>Package — $115</strong></div>
           <div class="card-desc">Silver Package + Inside vacuum and light chemical wipedown</div>
           <a href="booking.html" class="btn btn-gold">Book Now</a>
         </div>
@@ -159,9 +159,9 @@
 
       <!-- Silver -->
       <div class="card card-silver">
-        <img src="images/chargerafter.jpg" alt="Silver Package Car">
+        <img src="images/chargerbefore.jpg" alt="Silver Package Car">
         <div class="card-body">
-          <div class="card-title"><span class="accent-silver">SILVER</span> <strong>Package</strong> — $50</div>
+          <div class="card-title"><span class="accent-silver">SILVER</span> <strong>Package — $50</strong></div>
           <div class="card-desc">Exterior Wash with 2–3 Ceramic Protectant + Safe Contact Wash</div>
           <a href="booking.html" class="btn btn-silver">Book Now</a>
         </div>
@@ -189,7 +189,6 @@
   </script>
 </body>
 </html>
-
 
 
 
