@@ -6,224 +6,178 @@
   <title>Services - SR Auto Detailing</title>
   <link rel="icon" href="images/logo-small.png" type="image/png" />
   <style>
+    /* --- Base & Navbar --- */
+    * { box-sizing: border-box; }
     body {
       margin: 0;
       padding: 0;
-      background-color: #121212;
-      color: white;
       font-family: Arial, sans-serif;
+      background-color: #121212;
+      color: #fff;
     }
-
     .navbar {
-      background-color: #ffffff;
+      background-color: #fff;
       padding: 15px 20px;
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
       align-items: center;
       position: fixed;
-      top: 0;
-      left: 0;
+      top: 0; left: 0;
       width: 100%;
       z-index: 1000;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
-
     .nav-left {
-      position: absolute;
-      left: 20px;
-      display: flex;
-      align-items: center;
-      gap: 20px;
+      display: flex; align-items: center; gap: 15px;
     }
-
-    .nav-center {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      line-height: 1.2;
-    }
-
-    .nav-center .main-title {
-      font-size: 26px;
-      font-weight: bold;
-      letter-spacing: 2px;
-      white-space: nowrap;
-      color: #000000;
-    }
-
-    .nav-center .subtitle {
-      font-size: 16px;
-      color: #333333;
-      letter-spacing: 1px;
-    }
-
-    .call-icon {
-      position: absolute;
-      right: 15px;
-      font-size: 24px;
-      color: #000000;
-      text-decoration: none;
-    }
-
-    .call-icon:hover {
-      color: #555555;
-    }
-
-    .hamburger {
-      display: flex;
-      flex-direction: column;
-      cursor: pointer;
-    }
-
+    .hamburger { display: flex; flex-direction: column; cursor: pointer; }
     .hamburger span {
-      background: #000000;
-      height: 3px;
-      margin: 4px 0;
-      width: 25px;
+      background: #000; height: 3px; margin: 3px 0; width: 25px;
     }
-
     .nav-links {
       display: none;
       flex-direction: column;
-      background: #ffffff;
+      background: #fff;
       position: absolute;
-      top: 60px;
-      left: 20px;
-      padding: 10px;
+      top: 60px; left: 15px;
       border: 1px solid #ddd;
       border-radius: 8px;
+      overflow: hidden;
     }
-
-    .nav-links.active {
-      display: flex;
-    }
-
+    .nav-links.active { display: flex; }
     .nav-links a {
-      color: #000000;
+      padding: 10px 15px;
+      color: #000;
       text-decoration: none;
       font-weight: bold;
-      padding: 8px 12px;
       white-space: nowrap;
     }
+    .nav-links a:hover {
+      background: #f0f0f0;
+    }
+    .nav-center {
+      text-align: center; line-height: 1.2;
+      position: absolute; left: 50%; transform: translateX(-50%);
+      pointer-events: none;
+    }
+    .main-title { font-size: 26px; font-weight: bold; letter-spacing: 2px; color: #000; white-space: nowrap; }
+    .subtitle  { font-size: 16px; letter-spacing: 1px; color: #333; }
+    .call-icon {
+      font-size: 24px; color: #000; text-decoration: none;
+    }
+    .call-icon:hover { color: #555; }
 
+    /* --- Page Title --- */
     .container {
       max-width: 1100px;
-      padding: 40px 20px;
       margin: 120px auto 60px;
+      padding: 0 20px;
     }
-
     h1 {
-      font-size: 2em;
+      font-size: 2.5rem;
       text-align: center;
-      margin-bottom: 40px;
-      color: white;
+      margin-bottom: 2rem;
+      letter-spacing: 1px;
     }
 
-    .package-row {
+    /* --- Package Cards --- */
+    .packages {
+      display: grid;
+      gap: 2rem;
+    }
+    @media (min-width: 768px) {
+      .packages { grid-template-columns: 1fr; }
+    }
+    .card {
+      background: #1f1f1f;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
       display: flex;
-      flex-wrap: wrap;
-      gap: 30px;
-      margin-bottom: 30px;
-      justify-content: space-between;
+      flex-direction: column;
+      transition: transform 0.3s;
+      border-top: 4px solid transparent;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    @media (min-width: 768px) {
+      .card { flex-direction: row; }
     }
 
-    .package {
-      background-color: #2a2a2a;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-      flex: 1 1 48%;
-      display: flex;
-      gap: 20px;
-      flex-direction: row-reverse;
-      align-items: center;
-    }
+    /* color accents */
+    .card-premium { border-top-color: purple; }
+    .card-gold    { border-top-color: gold; }
+    .card-silver  { border-top-color: silver; }
+    .card-custom  { border-top-color: #00bfff; }
 
-    .package-content {
-      flex: 1;
+    .card-image {
+      flex: 1 1 40%;
+      min-height: 200px;
     }
-
-    .package-img {
-      width: 180px;
-      height: auto;
+    .card-image img {
+      width: 100%;
+      height: 100%;
       object-fit: cover;
-      border-radius: 8px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-
-    .package:hover .package-img {
-      transform: scale(1.05);
-      box-shadow: 0 8px 16px rgba(255, 255, 255, 0.15);
+    .card-content {
+      flex: 1 1 60%;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
-
-    .package-title {
-      font-size: 1.5em;
-      font-weight: bold;
-      margin-bottom: 10px;
-      color: white;
+    .card-title {
+      font-size: 1.75rem;
+      margin: 0 0 .5rem;
     }
-
-    .package-desc {
-      font-size: 1.2em;
+    .card-desc {
+      flex: 1;
+      font-size: 1rem;
       line-height: 1.5;
-      color: white;
+      margin-bottom: 1rem;
+      color: #ddd;
     }
 
-    .premium, .gold, .silver {
-      font-weight: bold;
-    }
-
-    .premium { color: purple; }
-    .gold { color: gold; }
-    .silver { color: silver; }
-
-    .book-btn {
+    /* Buttons */
+    .btn {
       display: inline-block;
-      margin-top: 15px;
-      padding: 10px 20px;
-      color: white;
+      padding: .75rem 1.5rem;
       font-weight: bold;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background-color 0.3s ease, transform 0.2s ease;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: background 0.3s;
+      text-align: center;
+    }
+    .btn-premium {
+      background: purple; color: #fff;
+    }
+    .btn-premium:hover {
+      background: #4a0c75;
+    }
+    .btn-gold {
+      background: gold; color: #000;
+    }
+    .btn-gold:hover {
+      background: #bfa500;
+    }
+    .btn-silver {
+      background: silver; color: #000;
+    }
+    .btn-silver:hover {
+      background: #8c8c8c;
+    }
+    .btn-custom {
+      background: #00bfff; color: #000;
+    }
+    .btn-custom:hover {
+      background: #009edb;
     }
 
-    .book-btn.premium { background-color: purple; }
-    .book-btn.gold { background-color: gold; color: black; }
-    .book-btn.silver { background-color: silver; color: black; }
-
-    .book-btn:hover {
-      background-color: #333;
-      transform: scale(1.05);
-      color: white;
-    }
-
-    @media (max-width: 768px) {
-      .package-row {
-        flex-direction: column;
-      }
-
-      .package {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .package-img {
-        width: 100%;
-        margin-top: 15px;
-      }
-    }
-
+    /* Mobile tweaks */
     @media (max-width: 480px) {
-      .nav-center .main-title {
-        font-size: 20px;
-        letter-spacing: normal;
-      }
-      .nav-center .subtitle {
-        font-size: 14px;
-        letter-spacing: normal;
-      }
+      .main-title { font-size: 22px; letter-spacing: normal; }
+      .subtitle   { font-size: 14px; letter-spacing: normal; }
     }
   </style>
 </head>
@@ -250,45 +204,64 @@
 
   <div class="container">
     <h1>Detailing Packages</h1>
+    <div class="packages">
 
-    <div class="package-row">
-      <div class="package">
-        <div class="package-content">
-          <div class="package-title"><span class="premium">Premium</span> Package - $150</div>
-          <div class="package-desc"><span class="gold">Gold</span> package + Stain and Pet Hair Removal + Paint Decontamination</div>
-          <button class="book-btn premium" onclick="window.location.href='booking.html';">Book Now</button>
+      <!-- Premium -->
+      <div class="card card-premium">
+        <div class="card-image">
+          <img src="images/Mercedesfront.jpeg" alt="Premium Package Car">
         </div>
-        <img src="images/Mercedesfront.jpeg" alt="Premium Package Car" class="package-img" />
+        <div class="card-content">
+          <h2 class="card-title">Premium Package — $150</h2>
+          <p class="card-desc">
+            Gold package + Stain and Pet Hair Removal + Paint Decontamination
+          </p>
+          <a href="booking.html" class="btn btn-premium">Book Now</a>
+        </div>
       </div>
 
-      <div class="package">
-        <div class="package-content">
-          <div class="package-title"><span class="gold">Gold</span> Package - $115</div>
-          <div class="package-desc"><span class="silver">Silver</span> Package + Inside vacuum and light Chemical wipedown</div>
-          <button class="book-btn gold" onclick="window.location.href='booking.html';">Book Now</button>
+      <!-- Gold -->
+      <div class="card card-gold">
+        <div class="card-image">
+          <img src="images/Trishcarside.jpeg" alt="Gold Package Car">
         </div>
-        <img src="images/Trishcarside.jpeg" alt="Gold Package Car" class="package-img" />
-      </div>
-    </div>
-
-    <div class="package-row">
-      <div class="package">
-        <div class="package-content">
-          <div class="package-title"><span class="silver">Silver</span> Package - $50</div>
-          <div class="package-desc">Exterior Wash with 2–3 Ceramic Protectant + Safe Contact Wash</div>
-          <button class="book-btn silver" onclick="window.location.href='booking.html';">Book Now</button>
+        <div class="card-content">
+          <h2 class="card-title">Gold Package — $115</h2>
+          <p class="card-desc">
+            Silver Package + Inside vacuum and light chemical wipedown
+          </p>
+          <a href="booking.html" class="btn btn-gold">Book Now</a>
         </div>
-        <img src="images/wheel.PNG" alt="Silver Package Car" class="package-img" />
       </div>
 
-      <div class="package">
-        <div class="package-content">
-          <div class="package-title">Custom Add-On</div>
-          <div class="package-desc">Ask us about interior protection, engine bay detail, and headlight restoration.</div>
-          <button class="book-btn" onclick="window.location.href='booking.html';">Book Now</button>
+      <!-- Silver -->
+      <div class="card card-silver">
+        <div class="card-image">
+          <img src="images/wheel.PNG" alt="Silver Package Car">
         </div>
-        <img src="images/addon.png" alt="Add-On Service" class="package-img" />
+        <div class="card-content">
+          <h2 class="card-title">Silver Package — $50</h2>
+          <p class="card-desc">
+            Exterior Wash with 2–3 Ceramic Protectant + Safe Contact Wash
+          </p>
+          <a href="booking.html" class="btn btn-silver">Book Now</a>
+        </div>
       </div>
+
+      <!-- Custom Add-On -->
+      <div class="card card-custom">
+        <div class="card-image">
+          <img src="images/addon.png" alt="Custom Add-On Service">
+        </div>
+        <div class="card-content">
+          <h2 class="card-title">Custom Add-On</h2>
+          <p class="card-desc">
+            Ask us about interior protection, engine bay detail, and headlight restoration.
+          </p>
+          <a href="booking.html" class="btn btn-custom">Book Now</a>
+        </div>
+      </div>
+
     </div>
   </div>
 
@@ -296,17 +269,15 @@
     function toggleMenu() {
       document.getElementById("navLinks").classList.toggle("active");
     }
-
-    document.addEventListener("click", function (e) {
-      const nav = document.getElementById("navLinks");
-      const burger = document.querySelector(".hamburger");
-      const call = document.querySelector(".call-icon");
+    document.addEventListener("click", function(e) {
+      const nav = document.getElementById("navLinks"),
+            burger = document.querySelector(".hamburger"),
+            call = document.querySelector(".call-icon");
       if (!nav.contains(e.target) && !burger.contains(e.target) && !call.contains(e.target)) {
         nav.classList.remove("active");
       }
     });
   </script>
-
 </body>
 </html>
 
