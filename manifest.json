@@ -1,0 +1,21 @@
+{
+  "name": "Supreme Revive Auto Detailing",
+  "short_name": "SR Auto",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "description": "High-end auto detailing services for your car. View services, gallery, and book online.",
+  "icons": [
+    {
+      "src": "images/logo-small.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "images/logo-small.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
