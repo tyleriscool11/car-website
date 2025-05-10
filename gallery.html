@@ -89,12 +89,13 @@
       max-width: 250px;
       border-radius: 10px;
       overflow: hidden;
-      background: #000; /* fallback if image fails */
+      background: #fff;           /* ← was #000 */
     }
     .photo img {
       width: 100%;
       height: auto;
       display: block;
+      border-radius: 10px;        /* ← match the container */
     }
     .label {
       position: absolute;
@@ -177,28 +178,29 @@
     <div class="pair-row">
       <div class="before-after-set">
         <div class="photo left">
-          <img src="images/amgbefore.jpg" alt="Seat Before">
+          <img src="images/amgbefore.jpg" alt="AMG Before">
           <div class="label">Before</div>
         </div>
         <div class="photo right">
-          <img src="images/Mercedesfront.jpeg" alt="Seat After">
+          <img src="images/Mercedesfront.jpeg" alt="AMG After">
           <div class="label">After</div>
         </div>
       </div>
 
       <div class="before-after-set">
         <div class="photo left">
-          <img src="images/truckbefore.jpg" alt="Charger Before">
+          <img src="images/truckbefore.jpg" alt="Truck Before">
           <div class="label">Before</div>
         </div>
         <div class="photo right">
-          <img src="images/truckafter.jpg" alt="Charger After">
+          <img src="images/truckafter.jpg" alt="Truck After">
           <div class="label">After</div>
         </div>
       </div>
     </div>
 
-  <div class="pair-row">
+    <!-- Row 3 -->
+    <div class="pair-row">
       <div class="before-after-set">
         <div class="photo left">
           <img src="images/seatbeforeari.jpg" alt="Seat Before">
@@ -216,7 +218,7 @@
           <div class="label">Before</div>
         </div>
         <div class="photo right">
-          <img src="images/chargerafter2.jpg" alt="Charger After">
+          <img src="images/chargerafter.jpg" alt="Charger After">
           <div class="label">After</div>
         </div>
       </div>
@@ -240,6 +242,7 @@
 
 </body>
 </html>
+
 
 
 
