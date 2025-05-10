@@ -14,8 +14,9 @@
       font-family: Arial, sans-serif;
     }
 
+    /* NAVBAR STYLES */
     .navbar {
-      background-color: #000;
+      background-color: #ffffff;
       padding: 15px 20px;
       display: flex;
       justify-content: center;
@@ -25,7 +26,7 @@
       left: 0;
       width: 100%;
       z-index: 1000;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     }
 
     .nav-left {
@@ -36,37 +37,6 @@
       gap: 20px;
     }
 
-    .nav-center {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      line-height: 1.2;
-    }
-
-    .main-title {
-      font-size: 26px;
-      font-weight: bold;
-      letter-spacing: 2px;
-    }
-
-    .subtitle {
-      font-size: 16px;
-      color: #aaa;
-      letter-spacing: 1px;
-    }
-
-    .call-icon {
-      position: absolute;
-      right: 15px;
-      font-size: 24px;
-      color: #00bfff;
-      text-decoration: none;
-    }
-
-    .call-icon:hover {
-      color: #00ffff;
-    }
-
     .hamburger {
       display: flex;
       flex-direction: column;
@@ -74,7 +44,7 @@
     }
 
     .hamburger span {
-      background: white;
+      background: #000000;
       height: 3px;
       margin: 4px 0;
       width: 25px;
@@ -83,12 +53,12 @@
     .nav-links {
       display: none;
       flex-direction: column;
-      background: #000;
+      background: #ffffff;
       position: absolute;
       top: 60px;
       left: 20px;
       padding: 10px;
-      border: 1px solid #333;
+      border: 1px solid #ddd;
       border-radius: 8px;
     }
 
@@ -97,16 +67,57 @@
     }
 
     .nav-links a {
-      color: white;
+      color: #000000;
       text-decoration: none;
       font-weight: bold;
       padding: 8px 12px;
+      white-space: nowrap;
+    }
+
+    .nav-links a:hover {
+      background-color: #f0f0f0;
+      border-radius: 4px;
+    }
+
+    .nav-center {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      line-height: 1.2;
+      pointer-events: none;
+    }
+
+    .main-title {
+      font-size: 26px;
+      font-weight: bold;
+      letter-spacing: 2px;
+      white-space: nowrap;
+      color: #000000;
+    }
+
+    .subtitle {
+      font-size: 16px;
+      color: #333333;
+      letter-spacing: 1px;
+    }
+
+    .call-icon {
+      position: absolute;
+      right: 15px;
+      font-size: 24px;
+      color: #000000;
+      text-decoration: none;
+    }
+
+    .call-icon:hover {
+      color: #555555;
     }
 
     h1 {
       text-align: center;
       margin-top: 100px;
       font-size: 2em;
+      color: white;
     }
 
     .gallery {
@@ -145,6 +156,11 @@
       left: auto;
       right: 10px;
     }
+
+    @media (max-width: 480px) {
+      .main-title { font-size: 20px; letter-spacing: normal; }
+      .subtitle   { font-size: 14px; letter-spacing: normal; }
+    }
   </style>
 </head>
 <body>
@@ -165,36 +181,35 @@
       <div class="main-title">SUPREME REVIVE</div>
       <div class="subtitle">Auto Detailing</div>
     </div>
-    <a href="tel:2108703203" class="call-icon">📞</a>
+    <a href="tel:2108703203" class="call-icon" title="Call Us">📞</a>
   </nav>
 
   <h1>Gallery</h1>
   <div class="gallery">
-    <div class="photo left"><img src="images/images/benzbefore.jpeg"><div class="label">Before</div></div>
-    <div class="photo right"><img src="images/Mercedesfront.jpeg"><div class="label">After</div></div>
-    <div class="photo left"><img src="images/seatbeforeari.jpg"><div class="label">Before</div></div>
-    <div class="photo right"><img src="images/seatafterari.jpg"><div class="label">After</div></div>
-    <div class="photo left"><img src="images/trunkbeforebenz.JPG"><div class="label">Before</div></div>
-    <div class="photo right"><img src="images/trunkbenzafter.JPG"><div class="label">After</div></div>
-    <div class="photo left"><img src="images/aricarbefore.jpg"><div class="label">Before</div></div>
-    <div class="photo right"><img src="images/aricarafter.jpg"><div class="label">After</div></div>
-  
+    <div class="photo left"><img src="images/benzbefore.jpeg" alt="Before"><div class="label">Before</div></div>
+    <div class="photo right"><img src="images/Mercedesfront.jpeg" alt="After"><div class="label">After</div></div>
+    <div class="photo left"><img src="images/seatbeforeari.jpg" alt="Before"><div class="label">Before</div></div>
+    <div class="photo right"><img src="images/seatafterari.jpg" alt="After"><div class="label">After</div></div>
+    <div class="photo left"><img src="images/trunkbeforebenz.JPG" alt="Before"><div class="label">Before</div></div>
+    <div class="photo right"><img src="images/trunkbenzafter.JPG" alt="After"><div class="label">After</div></div>
+    <div class="photo left"><img src="images/aricarbefore.jpg" alt="Before"><div class="label">Before</div></div>
+    <div class="photo right"><img src="images/aricarafter.jpg" alt="After"><div class="label">After</div></div>
   </div>
 
   <script>
     function toggleMenu() {
-      document.getElementById("navLinks").classList.toggle("active");
+      document.getElementById('navLinks').classList.toggle('active');
     }
-
-    document.addEventListener("click", function (e) {
-      const nav = document.getElementById("navLinks");
-      const burger = document.querySelector(".hamburger");
-      const call = document.querySelector(".call-icon");
+    document.addEventListener('click', function (e) {
+      const nav = document.getElementById('navLinks');
+      const burger = document.querySelector('.hamburger');
+      const call = document.querySelector('.call-icon');
       if (!nav.contains(e.target) && !burger.contains(e.target) && !call.contains(e.target)) {
-        nav.classList.remove("active");
+        nav.classList.remove('active');
       }
     });
   </script>
+
 </body>
 </html>
 
