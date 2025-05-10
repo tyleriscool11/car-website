@@ -6,113 +6,101 @@
   <title>SR Auto Detailing</title>
   <link rel="icon" href="images/logo-small.png" type="image/png" />
   <style>
-    /* — Reset & Base — */
+    /* — Variables & Base — */
+    :root {
+      --red:   #e30613;
+      --gray:  #f7f7f7;
+      --dark:  #111;
+      --light: #fff;
+      --font:  Arial, sans-serif;
+    }
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body, html {
-      width: 100%; height: 100%;
-      font-family: Arial, sans-serif;
-      background: #000;
-      color: #fff;
+    body {
+      font-family: var(--font);
+      color: var(--dark);
+      background: var(--light);
+      line-height: 1.5;
     }
     a { text-decoration: none; }
 
-    /* — Navbar (original style) — */
+    /* — Navbar — */
     .navbar {
-      background-color: #fff;
-      padding: 15px 20px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%;
-      z-index: 1000;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      background: var(--light);
+      padding: 1rem 1.5rem;
+      display: flex; align-items: center; justify-content: center;
+      position: fixed; top: 0; left: 0; width: 100%; z-index: 100;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
     .nav-left {
-      position: absolute; left: 20px;
-      display: flex; align-items: center; gap: 20px;
+      position: absolute; left: 1.5rem;
+      display: flex; align-items: center; gap: 1rem;
     }
-    .hamburger { display: flex; flex-direction: column; cursor: pointer; }
+    .hamburger { cursor: pointer; display: flex; flex-direction: column; gap: 4px; }
     .hamburger span {
-      background: #000; height: 3px; margin: 4px 0; width: 25px;
+      width: 24px; height: 3px; background: var(--dark); border-radius: 2px;
     }
     .nav-links {
-      display: none;
-      flex-direction: column;
-      position: absolute; top: 60px; left: 20px;
-      background: #fff; border: 1px solid #ddd; border-radius: 8px;
+      position: absolute; top: 60px; left: 1.5rem;
+      background: var(--light); border-radius: 6px; overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      display: none; flex-direction: column;
     }
     .nav-links.active { display: flex; }
     .nav-links a {
-      padding: 10px 15px;
-      color: #000;
-      font-weight: bold;
+      padding: 0.75rem 1.25rem; color: var(--dark); font-weight: bold;
       white-space: nowrap;
     }
-    .nav-links a:hover { background: #f0f0f0; }
+    .nav-links a:hover { background: var(--gray); }
 
     .nav-center {
-      display: flex; flex-direction: column; align-items: center;
-      pointer-events: none; line-height: 1.2; white-space: nowrap;
+      pointer-events: none; text-align: center;
     }
-    .main-title {
-      font-size: 26px; font-weight: bold; letter-spacing: 2px;
-      color: #000;
-    }
-    .subtitle {
-      font-size: 16px; color: #555; letter-spacing: 1px;
-    }
+    .main-title { font-size: 1.25rem; font-weight: bold; color: var(--dark); }
+    .subtitle   { font-size: 0.875rem; color: #666; }
+
     .call-icon {
-      position: absolute; right: 15px;
-      font-size: 24px; color: #000;
+      position: absolute; right: 1.5rem;
+      font-size: 1.5rem; color: var(--dark);
     }
     .call-icon:hover { color: #555; }
 
-    /* — Hero Section — */
+    /* — Hero — */
     .hero {
-      position: relative;
-      height: 60vh; /* smaller so you see below-fold content */
+      position: relative; height: 60vh;
       background: url('images/Mercedesfront.jpeg') no-repeat center/cover;
       display: flex; align-items: center; justify-content: center;
-      text-align: center;
-      margin-top: 70px; /* push below navbar */
+      margin-top: 4rem;
     }
     .hero::before {
       content: '';
-      position: absolute; top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0,0,0,0.5);
+      position: absolute; inset: 0;
+      background: rgba(0,0,0,0.4);
     }
     .hero-content {
-      position: relative; z-index: 1;
+      position: relative; z-index: 1; text-align: center;
       max-width: 90%; width: 600px;
+      color: var(--light);
       animation: fadeInUp 1s ease-out;
     }
     .hero-content h1 {
       font-size: 2.5rem; margin-bottom: 0.5rem;
-      color: #fff; letter-spacing: 1px; line-height: 1.1;
+      letter-spacing: 1px;
     }
     .hero-content p {
-      font-size: 1rem; margin-bottom: 2rem;
-      color: #ddd;
+      font-size: 1rem; margin-bottom: 2rem; color: #ddd;
     }
     .cta-buttons {
-      display: grid; gap: 1rem;
+      display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;
     }
     .cta-btn {
-      padding: 0.75rem;
-      background: #e30613;
-      color: #fff;
-      font-size: 1rem; font-weight: 600;
-      border-radius: 4px;
+      padding: 0.75rem 1.5rem;
+      background: var(--red); color: var(--light);
+      font-weight: bold; border-radius: 4px;
       transition: background 0.3s, transform 0.2s;
-      text-align: center;
-      display: block;
     }
     .cta-btn:hover {
-      background: #fff;
-      color: #e30613;
+      background: var(--light); color: var(--red);
+      border: 2px solid var(--red);
       transform: translateY(-2px);
     }
 
@@ -121,114 +109,85 @@
       to   { opacity: 1; transform: translateY(0); }
     }
 
-    /* — Services Overview — */
-    .services-overview {
-      background: #111;
-      padding: 4rem 1rem;
-      text-align: center;
+    /* — About — */
+    .about {
+      background: var(--gray); padding: 4rem 1rem; text-align: center;
     }
-    .services-overview h2 {
-      color: #fff;
-      margin-bottom: 2rem;
-      font-size: 1.75rem;
+    .about h2 {
+      font-size: 1.75rem; margin-bottom: 1rem; color: var(--dark);
     }
-    .cards {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-    .card {
-      background: #222;
-      padding: 1.5rem;
-      border-radius: 8px;
-      width: 260px;
-    }
-    .card h3 {
-      margin-bottom: 0.5rem;
-      color: #e30613;
-    }
-    .card p {
-      margin-bottom: 1rem;
-      color: #ccc;
-    }
-    .card-btn {
-      display: inline-block;
-      background: #e30613;
-      color: #fff;
-      padding: 0.5rem 1rem;
-      border-radius: 4px;
-      font-weight: 600;
-    }
-    .card-btn:hover {
-      background: #fff;
-      color: #e30613;
+    .about p {
+      max-width: 700px; margin: 0 auto; color: #444;
     }
 
-    /* — Gallery Preview — */
-    .gallery-preview {
-      background: #000;
-      padding: 4rem 1rem;
-      text-align: center;
+    /* — How It Works — */
+    .steps {
+      padding: 4rem 1rem; text-align: center;
     }
-    .gallery-preview h2 {
-      color: #fff;
-      margin-bottom: 2rem;
-      font-size: 1.75rem;
+    .steps h2 {
+      font-size: 1.75rem; margin-bottom: 2rem; color: var(--dark);
     }
-    .thumbs {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      flex-wrap: wrap;
+    .step-cards {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem;
     }
-    .thumbs img {
-      width: 150px;
-      height: auto;
-      border-radius: 6px;
-      object-fit: cover;
+    .step {
+      background: var(--light); padding: 2rem;
+      border-radius: 8px; width: 260px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);
     }
-    .see-all {
-      display: inline-block;
-      margin-top: 1.5rem;
-      color: #e30613;
-      font-weight: 600;
+    .step h3 {
+      margin-bottom: 0.5rem; color: var(--red);
+    }
+    .step p { color: #555; }
+
+    /* — Testimonials — */
+    .testimonials {
+      background: var(--gray); padding: 4rem 1rem; text-align: center;
+    }
+    .testimonials h2 {
+      font-size: 1.75rem; margin-bottom: 2rem; color: var(--dark);
+    }
+    .test-cards {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 1.5rem;
+    }
+    .test-card {
+      background: var(--light); padding: 1.5rem;
+      border-radius: 8px; width: 280px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    .test-card p {
+      font-style: italic; color: #555; margin-bottom: 1rem;
+    }
+    .test-card .author {
+      font-weight: bold; color: var(--dark);
     }
 
-    /* — Contact CTA — */
-    .contact-cta {
-      background: #111;
-      padding: 4rem 1rem;
-      text-align: center;
+    /* — Footer CTA — */
+    .footer-cta {
+      background: var(--dark); color: var(--light);
+      padding: 4rem 1rem; text-align: center;
     }
-    .contact-cta h2 {
-      color: #fff;
-      margin-bottom: 1rem;
-      font-size: 1.75rem;
+    .footer-cta h2 {
+      font-size: 1.75rem; margin-bottom: 1rem;
     }
-    .contact-cta p {
-      color: #ccc;
-      margin-bottom: 1.5rem;
+    .footer-cta p {
+      margin-bottom: 1.5rem; color: #ccc;
     }
-    .contact-cta .cta-btn {
-      background: #e30613;
-      color: #fff;
-      padding: 0.75rem 1.5rem;
-      border-radius: 4px;
-      font-weight: 600;
-      display: inline-block;
+    .footer-cta .cta-btn {
+      background: var(--light); color: var(--dark);
+      padding: 0.75rem 1.5rem; border-radius: 4px;
+      font-weight: bold;
     }
-    .contact-cta .cta-btn:hover {
-      background: #fff;
-      color: #e30613;
+    .footer-cta .cta-btn:hover {
+      background: var(--red); color: var(--light);
     }
 
     /* — Responsive — */
-    @media (max-width: 700px) {
-      .hero-content h1 { font-size: 2rem; }
-      .cta-btn        { font-size: 0.9rem; }
-      .cards          { flex-direction: column; }
-      .card           { width: 100%; max-width: 320px; }
+    @media (max-width: 768px) {
+      .step-cards, .test-cards {
+        flex-direction: column; align-items: center;
+      }
+      .cta-buttons {
+        flex-direction: column;
+      }
     }
   </style>
 </head>
@@ -265,42 +224,51 @@
     </div>
   </section>
 
-  <section class="services-overview">
-    <h2>Our Packages</h2>
-    <div class="cards">
-      <div class="card">
-        <h3>Silver</h3>
-        <p>Quick exterior wash & basic interior vacuum.</p>
-        <a href="services.html#silver" class="card-btn">Learn More</a>
+  <section class="about">
+    <h2>About Us</h2>
+    <p>At Supreme Revive, we’re passionate about bringing your car back to showroom condition. With years of experience and top‐of‐the‐line products, we deliver a meticulous, customer‐first detailing service.</p>
+  </section>
+
+  <section class="steps">
+    <h2>How It Works</h2>
+    <div class="step-cards">
+      <div class="step">
+        <h3>1. Book Online</h3>
+        <p>Choose your package, select a time, and reserve your spot in seconds.</p>
       </div>
-      <div class="card">
-        <h3>Gold</h3>
-        <p>Full interior detail + exterior wax & trim shine.</p>
-        <a href="services.html#gold" class="card-btn">Learn More</a>
+      <div class="step">
+        <h3>2. Drop Off</h3>
+        <p>Bring your car to our studio—or we’ll come to you for mobile detailing.</p>
       </div>
-      <div class="card">
-        <h3>Premium</h3>
-        <p>Complete paint correction & ceramic coating.</p>
-        <a href="services.html#premium" class="card-btn">Learn More</a>
+      <div class="step">
+        <h3>3. Relax & Enjoy</h3>
+        <p>We’ll treat your vehicle with care; you’ll drive away with a showroom shine.</p>
       </div>
     </div>
   </section>
 
-  <section class="gallery-preview">
-    <h2>Gallery Highlights</h2>
-    <div class="thumbs">
-      <a href="gallery.html"><img src="images/trunkbeforebenz.JPG" alt=""></a>
-      <a href="gallery.html"><img src="images/aricarafter.jpg" alt=""></a>
-      <a href="gallery.html"><img src="images/seatafterari.jpg" alt=""></a>
-      <a href="gallery.html"><img src="images/chargerafter.jpg" alt=""></a>
+  <section class="testimonials">
+    <h2>What Our Clients Say</h2>
+    <div class="test-cards">
+      <div class="test-card">
+        <p>“Absolute game‐changer! My car looks better than the day I bought it.”</p>
+        <div class="author">— Sarah J.</div>
+      </div>
+      <div class="test-card">
+        <p>“Fast, friendly, and flawless detailing. Will definitely return!”</p>
+        <div class="author">— Michael K.</div>
+      </div>
+      <div class="test-card">
+        <p>“They even removed old paint marks. Incredible attention to detail.”</p>
+        <div class="author">— Rachel L.</div>
+      </div>
     </div>
-    <a href="gallery.html" class="see-all">See All Photos →</a>
   </section>
 
-  <section class="contact-cta">
-    <h2>Ready to Book?</h2>
-    <p>Call us now or fill out our contact form to schedule your appointment.</p>
-    <a href="contact.html" class="cta-btn">Contact Us</a>
+  <section class="footer-cta">
+    <h2>Ready to Revive Your Ride?</h2>
+    <p>Book now or give us a call to experience the Supreme Revive difference.</p>
+    <a href="contact.html" class="cta-btn">Get in Touch</a>
   </section>
 
   <script>
