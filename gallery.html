@@ -86,16 +86,16 @@
     .photo {
       position: relative;
       width: 100%;
-      max-width: 250px;
+      max-width: 400px;    /* ↑ raised from 250px to 400px */
       border-radius: 10px;
       overflow: hidden;
-      background: #fff;           /* ← was #000 */
+      background: #fff;    /* fallback if image fails */
     }
     .photo img {
-      width: 100%;
-      height: auto;
       display: block;
-      border-radius: 10px;        /* ← match the container */
+      width: 100%;
+      height: auto;        /* keeps aspect-ratio, so height grows too */
+      border-radius: 10px; /* match the container corners */
     }
     .label {
       position: absolute;
@@ -147,7 +147,7 @@
   </nav>
 
   <div class="container">
-    <h1>Some of our Previous Work</h1>
+    <h1>Gallery</h1>
 
     <!-- Row 1 -->
     <div class="pair-row">
@@ -242,7 +242,6 @@
 
 </body>
 </html>
-
 
 
 
