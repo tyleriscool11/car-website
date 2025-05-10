@@ -18,7 +18,6 @@
       color: white;
     }
 
-    /* Navbar */
     .navbar {
       background-color: #000;
       padding: 15px 20px;
@@ -26,7 +25,6 @@
       justify-content: space-between;
       align-items: center;
       position: relative;
-      z-index: 1000;
     }
 
     .nav-links {
@@ -38,7 +36,6 @@
       color: white;
       text-decoration: none;
       font-weight: bold;
-      font-size: 16px;
     }
 
     .nav-links a:hover {
@@ -73,7 +70,6 @@
         border: 1px solid #333;
         border-radius: 8px;
         padding: 10px;
-        width: auto;
         z-index: 999;
       }
 
@@ -97,14 +93,37 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 20px;
+      gap: 40px;
       padding: 40px 20px;
     }
 
-    .gallery img {
-      width: 100%;
+    .photo {
+      position: relative;
       max-width: 400px;
+      width: 100%;
+    }
+
+    .photo img {
+      width: 100%;
       border-radius: 10px;
+    }
+
+    .label {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      padding: 5px 10px;
+      background: rgba(0, 0, 0, 0.5);
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      text-shadow: 0 0 10px white;
+      border-radius: 4px;
+    }
+
+    .photo.right .label {
+      left: auto;
+      right: 10px;
     }
   </style>
 </head>
@@ -126,17 +145,53 @@
   </nav>
 
   <h1>Gallery</h1>
+
   <div class="gallery">
-    <img src="images/benzbefore.jpg" alt="Work Photo">
-    <img src="images/benzafter.jpg" alt="Work Photo">
-    <img src="images/seatbeforeari.jpg" alt="Work Photo">
-    <img src="images/seatafterari.jpg" alt="Work Photo">
-    <img src="images/trunkbeforebenz.JPG" alt="Work Photo">
-    <img src="images/trunkbenzafter.JPG" alt="Work Photo">
-    <img src="images/aricarbefore.jpg" alt="Work Photo">
-    <img src="images/aricarafter.jpg" alt="Work Photo">
-    <img src="images/IMG_2298.jpeg" alt="Work Photo">
-    <img src="images/IMG_2048.jpeg" alt="Work Photo">
+    <!-- Each pair: Before (left) and After (right) -->
+    <div class="photo left">
+      <img src="images/benzbefore.jpg" alt="Before Photo">
+      <div class="label">Before</div>
+    </div>
+    <div class="photo right">
+      <img src="images/benzafter.jpg" alt="After Photo">
+      <div class="label">After</div>
+    </div>
+
+    <div class="photo left">
+      <img src="images/seatbeforeari.jpg" alt="Before Photo">
+      <div class="label">Before</div>
+    </div>
+    <div class="photo right">
+      <img src="images/seatafterari.jpg" alt="After Photo">
+      <div class="label">After</div>
+    </div>
+
+    <div class="photo left">
+      <img src="images/trunkbeforebenz.JPG" alt="Before Photo">
+      <div class="label">Before</div>
+    </div>
+    <div class="photo right">
+      <img src="images/trunkbenzafter.JPG" alt="After Photo">
+      <div class="label">After</div>
+    </div>
+
+    <div class="photo left">
+      <img src="images/aricarbefore.jpg" alt="Before Photo">
+      <div class="label">Before</div>
+    </div>
+    <div class="photo right">
+      <img src="images/aricarafter.jpg" alt="After Photo">
+      <div class="label">After</div>
+    </div>
+
+    <div class="photo left">
+      <img src="images/IMG_2298.jpeg" alt="Before Photo">
+      <div class="label">Before</div>
+    </div>
+    <div class="photo right">
+      <img src="images/IMG_2048.jpeg" alt="After Photo">
+      <div class="label">After</div>
+    </div>
   </div>
 
   <script>
