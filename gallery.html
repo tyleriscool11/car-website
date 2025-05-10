@@ -185,8 +185,17 @@
   <!-- Toggle Script -->
   <script>
     function toggleMenu() {
-      document.getElementById("navLinks").classList.toggle("active");
+      const nav = document.getElementById("navLinks");
+      nav.classList.toggle("active");
     }
+
+    document.addEventListener("click", function (e) {
+      const nav = document.getElementById("navLinks");
+      const burger = document.querySelector(".hamburger");
+      if (!nav.contains(e.target) && !burger.contains(e.target)) {
+        nav.classList.remove("active");
+      }
+    });
   </script>
 
 </body>
