@@ -25,19 +25,8 @@
       z-index: 1000;
     }
 
-    .nav-links {
-      display: flex;
-      gap: 20px;
-    }
-
-    .nav-links a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
     .hamburger {
-      display: none;
+      display: flex;
       flex-direction: column;
       cursor: pointer;
     }
@@ -49,35 +38,35 @@
       width: 25px;
     }
 
-    /* Responsive Mobile Nav */
-    @media (max-width: 768px) {
-      .hamburger {
-        display: flex;
-      }
+    .nav-links {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 60px;
+      left: 20px;
+      background-color: #000;
+      border: 1px solid #333;
+      border-radius: 8px;
+      padding: 10px;
+      z-index: 999;
+    }
 
-      .nav-links {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 60px;
-        left: 20px;
-        background-color: #000;
-        border: 1px solid #333;
-        border-radius: 8px;
-        padding: 10px;
-        width: auto;
-        z-index: 999;
-      }
+    .nav-links.active {
+      display: flex;
+    }
 
-      .nav-links a {
-        padding: 8px 12px;
-        text-align: left;
-        white-space: nowrap;
-      }
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 16px;
+      padding: 8px 12px;
+      white-space: nowrap;
+    }
 
-      .nav-links.active {
-        display: flex;
-      }
+    .nav-links a:hover {
+      background-color: #222;
+      border-radius: 5px;
     }
 
     /* Hero Section */
