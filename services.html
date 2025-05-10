@@ -9,7 +9,7 @@
   <style>
     /* reset & base */
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: Arial, sans-serif; background: #121212; color: #fff; }
+    body { font-family: Arial, sans-serif; background: #fff; color: #000; }
 
     /* Navbar */
     .navbar {
@@ -21,9 +21,9 @@
     .nav-left { display: flex; gap: 15px; }
     .hamburger { display: flex; flex-direction: column; cursor: pointer; }
     .hamburger span { background: #000; height: 3px; margin: 3px 0; width: 25px; }
-    .nav-links { display: none; position: absolute; top: 60px; left: 15px;
-      background: #fff; border-radius: 8px; overflow: hidden;
-      flex-direction: column;
+    .nav-links {
+      display: none; position: absolute; top: 60px; left: 15px;
+      background: #fff; border-radius: 8px; overflow: hidden; flex-direction: column;
     }
     .nav-links.active { display: flex; }
     .nav-links a { padding: 10px 15px; color: #000; text-decoration: none; font-weight: bold; }
@@ -33,7 +33,7 @@
       text-align: center; pointer-events: none;
     }
     .main-title { font-size: 26px; font-weight: bold; letter-spacing: 2px; }
-    .subtitle   { font-size: 16px; color: #333; letter-spacing: 1px; }
+    .subtitle   { font-size: 16px; letter-spacing: 1px; }
     .call-icon  { font-size: 24px; color: #000; text-decoration: none; }
     .call-icon:hover { color: #555; }
 
@@ -142,7 +142,7 @@
       <div class="card card-premium">
         <img src="images/Mercedesfront.jpeg" alt="Premium Package Car">
         <div class="card-body">
-          <div class="card-title"><span class="accent-premium">PREMIUM</span> Package — $150</div>
+          <div class="card-title"><span class="accent-premium">PREMIUM</span> <strong>Package</strong> — $150</div>
           <div class="card-desc">Gold package + Stain and Pet Hair Removal + Paint Decontamination</div>
           <a href="booking.html" class="btn btn-premium">Book Now</a>
         </div>
@@ -152,7 +152,7 @@
       <div class="card card-gold">
         <img src="images/Trishcarside.jpeg" alt="Gold Package Car">
         <div class="card-body">
-          <div class="card-title"><span class="accent-gold">GOLD</span> Package — $115</div>
+          <div class="card-title"><span class="accent-gold">GOLD</span> <strong>Package</strong> — $115</div>
           <div class="card-desc">Silver Package + Inside vacuum and light chemical wipedown</div>
           <a href="booking.html" class="btn btn-gold">Book Now</a>
         </div>
@@ -160,9 +160,9 @@
 
       <!-- Silver -->
       <div class="card card-silver">
-        <img src="images/chargerafter.jpg" alt="Silver Package Car">
+        <img src="images/chargerbefore.jpg" alt="Silver Package Car">
         <div class="card-body">
-          <div class="card-title"><span class="accent-silver">SILVER</span> Package — $50</div>
+          <div class="card-title"><span class="accent-silver">SILVER</span> <strong>Package</strong> — $50</div>
           <div class="card-desc">Exterior Wash with 2–3 Ceramic Protectant + Safe Contact Wash</div>
           <a href="booking.html" class="btn btn-silver">Book Now</a>
         </div>
@@ -172,7 +172,7 @@
       <div class="card card-custom">
         <img src="images/benztrunkafter.jpg" alt="Custom Add-On Service">
         <div class="card-body">
-          <div class="card-title"><span class="accent-custom">CUSTOM</span> Add-On</div>
+          <div class="card-title"><span class="accent-custom">CUSTOM</span> <strong>Add-On</strong></div>
           <div class="card-desc">Ask us about interior protection, engine bay detail, and headlight restoration.</div>
           <a href="booking.html" class="btn btn-custom">Book Now</a>
         </div>
@@ -190,5 +190,6 @@
   </script>
 </body>
 </html>
+
 
 
