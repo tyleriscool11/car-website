@@ -1,56 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="manifest" href="manifest.json">
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>SR Auto Detailing</title>
   <link rel="icon" href="images/logo-small.png" type="image/png" />
   <style>
-    .menu-toggle {
-  display: none;
-  font-size: 28px;
-  cursor: pointer;
-  color: white;
-}
-
-nav {
-  display: flex;
-  gap: 20px;
-}
-
-@media (max-width: 768px) {
-  .menu-toggle {
-    display: block;
-  }
-
-  nav {
-    display: none;
-    flex-direction: column;
-    background-color: black;
-    position: absolute;
-    top: 60px;
-    left: 0;
-    width: 100%;
-    padding: 10px;
-    z-index: 1000;
-  }
-
-  nav.show {
-    display: flex;
-  }
-
-  nav a {
-    margin: 10px 0;
-  }
-}
-
     body, html {
-      height: 100%;
       margin: 0;
+      padding: 0;
       font-family: Arial, sans-serif;
+      background-color: #121212;
+      color: white;
     }
 
+    /* Navbar */
+    .navbar {
+      background-color: #000;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      z-index: 1000;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .hamburger span {
+      background: white;
+      height: 3px;
+      margin: 4px 0;
+      width: 25px;
+    }
+
+    /* Responsive Mobile Nav */
+    @media (max-width: 768px) {
+      .hamburger {
+        display: flex;
+      }
+
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 20px;
+        background-color: #000;
+        border: 1px solid #333;
+        border-radius: 8px;
+        padding: 10px;
+        width: auto;
+        z-index: 999;
+      }
+
+      .nav-links a {
+        padding: 8px 12px;
+        text-align: left;
+        white-space: nowrap;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+    }
+
+    /* Hero Section */
     .background {
       background: url('images/Mercedesfront.jpeg') no-repeat center center/cover;
       position: relative;
@@ -58,35 +88,12 @@ nav {
     }
 
     .overlay {
-      background-color: rgba(0, 0, 0, 0.6); /* darken effect */
+      background-color: rgba(0, 0, 0, 0.6);
       position: absolute;
       top: 0;
       left: 0;
       height: 100%;
       width: 100%;
-    }
-
-    header {
-      position: absolute;
-      top: 0;
-      width: 100%;
-      background-color: rgba(0, 0, 0, 0.85);
-      display: flex;
-      justify-content: center;
-      padding: 20px 0;
-      z-index: 2;
-    }
-
-    nav {
-      display: flex;
-      gap: 30px;
-    }
-
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 1rem;
     }
 
     .content {
@@ -98,7 +105,6 @@ nav {
       align-items: center;
       justify-content: center;
       text-align: center;
-      color: white;
       padding: 0 20px;
     }
 
@@ -132,18 +138,25 @@ nav {
   </style>
 </head>
 <body>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
   <div class="background">
     <div class="overlay"></div>
-   <header>
-  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-  <nav id="navbar">
-    <a href="index.html">Home</a>
-    <a href="services.html">Services</a>
-    <a href="gallery.html">Gallery</a>
-    <a href="contact.html">Contact</a>
-  </nav>
-</header>
-
     <div class="content">
       <h1>Supreme Revive Auto Detailing</h1>
       <div class="cta-buttons">
@@ -152,12 +165,13 @@ nav {
       </div>
     </div>
   </div>
+
+  <!-- Toggle Script -->
   <script>
-  function toggleMenu() {
-    const nav = document.getElementById("navbar");
-    nav.classList.toggle("show");
-  }
-</script>
+    function toggleMenu() {
+      document.getElementById("navLinks").classList.toggle("active");
+    }
+  </script>
 
 </body>
 </html>
