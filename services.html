@@ -7,60 +7,83 @@
   <link rel="icon" href="images/logo-small.png" type="image/png">
 
   <style>
-   .navbar {
-      display: flex;
-      justify-content: center; 
-      align-items: center;     
-      width: 100%;
-      background-color: #000;
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #121212;
+      color: white;
+      font-family: Arial, sans-serif;
     }
 
-    .navbar a {
+    header {
+      background-color: black;
       color: white;
-      padding: 10px 15px;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 28px;
+      cursor: pointer;
+      color: white;
+    }
+
+    nav {
+      display: flex;
+      gap: 20px;
+    }
+
+    nav a {
+      color: white;
       text-decoration: none;
-      font-size: 18px;
-      margin: 0 10px;  
+      font-weight: bold;
+    }
+
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      nav {
+        display: none;
+        flex-direction: column;
+        background-color: black;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        padding: 10px;
+        z-index: 1000;
+      }
+
+      nav.show {
+        display: flex;
+      }
+
+      nav a {
+        margin: 10px 0;
+      }
     }
 
     .navbar a:hover {
       background-color: #555;
     }
 
-  .book-btn {
-  display: inline-block;
-  margin-top: 15px;
-  padding: 12px 24px;
-  font-size: 16px;
-  font-weight: bold;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  color: white;
-  text-align: center;
-}
+    .container {
+      max-width: 900px;
+      padding: 40px 20px;
+      margin: auto;
+    }
 
-.book-btn.premium {
-  background-color: purple;
-}
-
-.book-btn.gold {
-  background-color: gold;
-  color: black;
-}
-
-.book-btn.silver {
-  background-color: #ccc;
-  color: black;
-}
-
-.book-btn:hover {
-  background-color: #333;
-  transform: scale(1.05);
-  color: white;
-}
-
+    h1 {
+      font-size: 2em;
+      text-align: left;
+      margin-bottom: 30px;
+    }
 
     .package {
       display: flex;
@@ -94,68 +117,61 @@
       box-shadow: 0 8px 16px rgba(255, 255, 255, 0.15);
     }
 
-    body {
-      margin: 0;
-      padding: 0;
-      background-color: #121212;
-      color: white;
-      font-family: Arial, sans-serif;
-    }
-
-    header {
-      background-color: black;
-      color: white;
-      padding: 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin-left: 20px;
-      font-weight: bold;
-    }
-
-    .container {
-      max-width: 900px;
-      padding: 40px 20px;
-      margin: auto;
-    }
-
-    h1 {
-      font-size: 2em;
-      text-align: left;
-      margin-bottom: 30px;
-    }
-
     .package-title {
       font-size: 1.5em;
       font-weight: bold;
       margin-bottom: 10px;
     }
 
-   .premium, .gold, .silver {
-  color: inherit;
-  font-weight: bold;
-}
-
-.premium {
-  color: purple;
-}
-.gold {
-  color: gold;
-}
-.silver {
-  color: silver;
-}
-
-
-
     .package-desc {
       font-size: 1.2em;
       line-height: 1.5;
+    }
+
+    .premium, .gold, .silver {
+      color: inherit;
+      font-weight: bold;
+    }
+
+    .premium {
+      color: purple;
+    }
+
+    .gold {
+      color: gold;
+    }
+
+    .silver {
+      color: silver;
+    }
+
+    .book-btn {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 20px;
+      color: white;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .book-btn.premium {
+      background-color: purple;
+    }
+
+    .book-btn.gold {
+      background-color: gold;
+    }
+
+    .book-btn.silver {
+      background-color: silver;
+    }
+
+    .book-btn:hover {
+      background-color: #333;
+      transform: scale(1.05);
     }
 
     @media (max-width: 768px) {
@@ -174,16 +190,15 @@
 </head>
 <body>
 
- <header>
-  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-  <nav id="navbar">
-    <a href="index.html">Home</a>
-    <a href="services.html">Services</a>
-    <a href="gallery.html">Gallery</a>
-    <a href="contact.html">Contact</a>
-  </nav>
-</header>
-
+  <header>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <nav id="navbar">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
 
   <div class="container">
     <h1>Detailing Packages</h1>
@@ -216,8 +231,16 @@
     </div>
   </div>
 
+  <script>
+    function toggleMenu() {
+      const nav = document.getElementById("navbar");
+      nav.classList.toggle("show");
+    }
+  </script>
+
 </body>
 </html>
+
 
 
 
