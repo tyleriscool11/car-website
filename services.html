@@ -26,51 +26,41 @@
     }
 
     .menu-toggle {
-      display: none;
       font-size: 28px;
       cursor: pointer;
       color: white;
+      display: flex;
+      flex-direction: column;
     }
 
     nav {
+      display: none;
+      flex-direction: column;
+      background-color: black;
+      position: absolute;
+      top: 60px;
+      left: 20px;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #333;
+      z-index: 1000;
+    }
+
+    nav.show {
       display: flex;
-      gap: 20px;
     }
 
     nav a {
       color: white;
       text-decoration: none;
       font-weight: bold;
+      padding: 8px 12px;
+      white-space: nowrap;
     }
 
-    @media (max-width: 768px) {
-      .menu-toggle {
-        display: block;
-      }
-
-      nav {
-        display: none;
-        flex-direction: column;
-        background-color: black;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        width: 100%;
-        padding: 10px;
-        z-index: 1000;
-      }
-
-      nav.show {
-        display: flex;
-      }
-
-      nav a {
-        margin: 10px 0;
-      }
-    }
-
-    .navbar a:hover {
-      background-color: #555;
+    nav a:hover {
+      background-color: #333;
+      border-radius: 4px;
     }
 
     .container {
@@ -133,17 +123,9 @@
       font-weight: bold;
     }
 
-    .premium {
-      color: purple;
-    }
-
-    .gold {
-      color: gold;
-    }
-
-    .silver {
-      color: silver;
-    }
+    .premium { color: purple; }
+    .gold { color: gold; }
+    .silver { color: silver; }
 
     .book-btn {
       display: inline-block;
@@ -157,17 +139,9 @@
       transition: background-color 0.3s ease, transform 0.2s ease;
     }
 
-    .book-btn.premium {
-      background-color: purple;
-    }
-
-    .book-btn.gold {
-      background-color: gold;
-    }
-
-    .book-btn.silver {
-      background-color: silver;
-    }
+    .book-btn.premium { background-color: purple; }
+    .book-btn.gold { background-color: gold; }
+    .book-btn.silver { background-color: silver; }
 
     .book-btn:hover {
       background-color: #333;
@@ -206,30 +180,20 @@
     <div class="package">
       <div class="package-content">
         <div class="package-title"><span class="premium">Premium</span> Package - $150</div>
-        <div class="package-desc">Gold package + Stain and Pet Hair Removal + Paint Decontamination</div>
+        <div class="package-desc"><span class="gold">Gold</span> package + Stain and Pet Hair Removal + Paint Decontamination</div>
         <button class="book-btn premium" onclick="window.location.href='booking.html';">Book Now</button>
       </div>
       <img src="images/Mercedesfront.jpeg" alt="Premium Package Car" class="package-img" />
     </div>
 
     <div class="package">
-  <div class="package-content">
-    <div class="package-title"><span class="premium">Premium</span> Package - $150</div>
-    <div class="package-desc"><span class="gold">Gold</span> package + Stain and Pet Hair Removal + Paint Decontamination</div>
-    <button class="book-btn premium" onclick="window.location.href='booking.html';">Book Now</button>
-  </div>
-  <img src="images/Mercedesfront.jpeg" alt="Premium Package Car" class="package-img" />
-</div>
-
-<div class="package">
-  <div class="package-content">
-    <div class="package-title"><span class="gold">Gold</span> Package - $115</div>
-    <div class="package-desc"><span class="silver">Silver</span> Package + Inside vacuum and light Chemical wipedown</div>
-    <button class="book-btn gold" onclick="window.location.href='booking.html';">Book Now</button>
-  </div>
-  <img src="images/Trishcarside.jpeg" alt="Gold Package Car" class="package-img" />
-</div>
-
+      <div class="package-content">
+        <div class="package-title"><span class="gold">Gold</span> Package - $115</div>
+        <div class="package-desc"><span class="silver">Silver</span> Package + Inside vacuum and light Chemical wipedown</div>
+        <button class="book-btn gold" onclick="window.location.href='booking.html';">Book Now</button>
+      </div>
+      <img src="images/Trishcarside.jpeg" alt="Gold Package Car" class="package-img" />
+    </div>
 
     <div class="package">
       <div class="package-content">
@@ -243,9 +207,16 @@
 
   <script>
     function toggleMenu() {
-      const nav = document.getElementById("navbar");
-      nav.classList.toggle("show");
+      document.getElementById("navbar").classList.toggle("show");
     }
+
+    document.addEventListener("click", function (e) {
+      const nav = document.getElementById("navbar");
+      const toggle = document.querySelector(".menu-toggle");
+      if (!nav.contains(e.target) && !toggle.contains(e.target)) {
+        nav.classList.remove("show");
+      }
+    });
   </script>
 
 </body>
