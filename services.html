@@ -37,20 +37,17 @@
     }
 
     .nav-center {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  line-height: 1.2;
-  text-align: center;
-  white-space: nowrap;
-}
-
-    
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      line-height: 1.2;
+    }
 
     .nav-center .main-title {
-      font-size: 22px;
+      font-size: 26px;
       font-weight: bold;
       letter-spacing: 2px;
+      white-space: nowrap;           /* prevent wrapping */
     }
 
     .nav-center .subtitle {
@@ -204,26 +201,27 @@
       }
 
       .package {
-  background-color: #2a2a2a;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  flex: 1 1 45%;
-  display: flex;
-  gap: 20px;
-  flex-direction: row-reverse;
-  align-items: center;
-}
+        flex-direction: column;
+        align-items: flex-start;
+      }
 
-.package-img {
-  width: 160px;
-  height: auto;
-  object-fit: cover;
-  border-radius: 8px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+      .package-img {
+        width: 100%;
+        margin-top: 15px;
+      }
+    }
 
-    
+    /* Mobile tweaks to prevent wrapping of the title */
+    @media (max-width: 480px) {
+      .nav-center .main-title {
+        font-size: 20px;
+        letter-spacing: normal;
+      }
+      .nav-center .subtitle {
+        font-size: 14px;
+        letter-spacing: normal;
+      }
+    }
   </style>
 </head>
 <body>
@@ -280,7 +278,6 @@
         <img src="images/wheel.PNG" alt="Silver Package Car" class="package-img" />
       </div>
 
-      <!-- You can add a 4th package here if you want -->
       <div class="package">
         <div class="package-content">
           <div class="package-title">Custom Add-On</div>
