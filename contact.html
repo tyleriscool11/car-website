@@ -4,37 +4,181 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Contact Us - SR Auto Detailing</title>
-   <link rel="icon" href="images/logo-small.png" type="image/png">
-
+  <link rel="icon" href="images/logo-small.png" type="image/png">
   <style>
-    body { font-family: Arial; background: #f0f0f0; margin: 0; }
-    .container { max-width: 600px; margin: 50px auto; background: white; padding: 30px; border-radius: 10px; }
-    h1 { text-align: center; }
-    .social a { display: block; text-align: center; margin: 10px 0; font-weight: bold; color: #000; text-decoration: none; }
+    body {
+      font-family: Arial, sans-serif;
+      background: #121212;
+      margin: 0;
+      padding: 0;
+      color: white;
+    }
+
+    /* Navbar styles */
+    .navbar {
+      background-color: #000;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .hamburger span {
+      background: white;
+      height: 3px;
+      margin: 4px 0;
+      width: 25px;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        background: #000;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        padding: 15px 0;
+      }
+
+      .nav-links a {
+        padding: 10px;
+        text-align: center;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+    }
+
+    /* Form styles */
+    .container {
+      max-width: 600px;
+      margin: 60px auto;
+      background: #1e1e1e;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    input, textarea {
+      padding: 10px;
+      margin-bottom: 20px;
+      border: none;
+      border-radius: 5px;
+      background: #2a2a2a;
+      color: white;
+    }
+
+    button {
+      background: #007bff;
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background: #0056b3;
+    }
+
+    .social {
+      margin-top: 30px;
+      text-align: center;
+    }
+
+    .social a {
+      display: block;
+      margin: 10px 0;
+      color: #00bfff;
+      text-decoration: none;
+    }
   </style>
 </head>
 <body>
-  
-<nav style="background-color: #000; padding: 15px; text-align: center;">
-  <a href="index.html" style="color: white; margin: 0 15px; text-decoration: none;">Home</a>
-  <a href="services.html" style="color: white; margin: 0 15px; text-decoration: none;">Services</a>
-  <a href="gallery.html" style="color: white; margin: 0 15px; text-decoration: none;">Gallery</a>
-  <a href="contact.html" style="color: white; margin: 0 15px; text-decoration: none;">Contact</a>
-</nav>
+
+  <nav class="navbar">
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
 
   <div class="container">
     <h1>Contact Us</h1>
     <form>
-      <label>Name</label><input type="text" placeholder="Your name" />
-      <label>Email</label><input type="email" placeholder="Your email" />
-      <label>Message</label><textarea rows="5" placeholder="Your message"></textarea>
-      <button type="submit">Send</button>
+      <label for="name">Name</label>
+      <input id="name" type="text" placeholder="Your name" required />
+
+      <label for="email">Email</label>
+      <input id="email" type="email" placeholder="Your email" required />
+
+      <label for="message">Message</label>
+      <textarea id="message" rows="5" placeholder="Your message" required></textarea>
+
+      <button type="submit">Send Message</button>
     </form>
+
     <div class="social">
       <a href="https://instagram.com/srautodetailingco" target="_blank">📸 Instagram: @srautodetailingco</a>
       <a href="tel:2108703203">📞 Phone: 210-870-3203</a>
       <a href="https://facebook.com" target="_blank">📘 Facebook: Supreme Revive Auto Detailing</a>
     </div>
   </div>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById("navLinks").classList.toggle("active");
+    }
+  </script>
 </body>
 </html>
+
