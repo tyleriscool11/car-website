@@ -22,7 +22,8 @@
     .hamburger { display: flex; flex-direction: column; cursor: pointer; }
     .hamburger span { background: #000; height: 3px; margin: 3px 0; width: 25px; }
     .nav-links { display: none; position: absolute; top: 60px; left: 15px;
-      background: #fff; border-radius: 8px; overflow: hidden; flex-direction: column;
+      background: #fff; border-radius: 8px; overflow: hidden;
+      flex-direction: column;
     }
     .nav-links.active { display: flex; }
     .nav-links a { padding: 10px 15px; color: #000; text-decoration: none; font-weight: bold; }
@@ -63,7 +64,7 @@
     }
     .card:hover { transform: translateY(-5px); }
 
-    /* Accent stripes & buttons colors */
+    /* Accent stripes */
     .card-premium { border-top-color: purple; }
     .card-gold    { border-top-color: gold; }
     .card-silver  { border-top-color: silver; }
@@ -71,22 +72,27 @@
 
     /* Image fixed height */
     .card img {
-      width: 100%; height: 180px; object-fit: cover;
+      width: 100%; height: 200px; object-fit: cover;
     }
 
     /* Card body */
     .card-body {
-      padding: 1rem 1.5rem; flex: 1;
+      padding: 1.5rem 1.5rem; flex: 1;
       display: flex; flex-direction: column;
     }
     .card-title {
-      font-size: 1.5rem; margin-bottom: .5rem;
-      text-transform: uppercase;
+      font-size: 1.5rem; margin-bottom: .75rem;
     }
     .card-desc {
       flex: 1; line-height: 1.5; color: #ddd;
-      margin-bottom: 1rem;
+      margin-bottom: 1.25rem;
     }
+
+    /* Accent title words */
+    .accent-premium { color: purple; font-weight: bold; text-transform: uppercase; }
+    .accent-gold    { color: gold;   font-weight: bold; text-transform: uppercase; }
+    .accent-silver  { color: silver; font-weight: bold; text-transform: uppercase; }
+    .accent-custom  { color: #00bfff; font-weight: bold; text-transform: uppercase; }
 
     /* Buttons */
     .btn {
@@ -136,7 +142,7 @@
       <div class="card card-premium">
         <img src="images/Mercedesfront.jpeg" alt="Premium Package Car">
         <div class="card-body">
-          <div class="card-title">Premium Package — $150</div>
+          <div class="card-title"><span class="accent-premium">PREMIUM</span> Package — $150</div>
           <div class="card-desc">Gold package + Stain and Pet Hair Removal + Paint Decontamination</div>
           <a href="booking.html" class="btn btn-premium">Book Now</a>
         </div>
@@ -146,7 +152,7 @@
       <div class="card card-gold">
         <img src="images/Trishcarside.jpeg" alt="Gold Package Car">
         <div class="card-body">
-          <div class="card-title">Gold Package — $115</div>
+          <div class="card-title"><span class="accent-gold">GOLD</span> Package — $115</div>
           <div class="card-desc">Silver Package + Inside vacuum and light chemical wipedown</div>
           <a href="booking.html" class="btn btn-gold">Book Now</a>
         </div>
@@ -156,7 +162,7 @@
       <div class="card card-silver">
         <img src="images/chargerbefore.jpg" alt="Silver Package Car">
         <div class="card-body">
-          <div class="card-title">Silver Package — $50</div>
+          <div class="card-title"><span class="accent-silver">SILVER</span> Package — $50</div>
           <div class="card-desc">Exterior Wash with 2–3 Ceramic Protectant + Safe Contact Wash</div>
           <a href="booking.html" class="btn btn-silver">Book Now</a>
         </div>
@@ -166,7 +172,7 @@
       <div class="card card-custom">
         <img src="images/benztrunkafter.jpg" alt="Custom Add-On Service">
         <div class="card-body">
-          <div class="card-title">Custom Add-On</div>
+          <div class="card-title"><span class="accent-custom">CUSTOM</span> Add-On</div>
           <div class="card-desc">Ask us about interior protection, engine bay detail, and headlight restoration.</div>
           <a href="booking.html" class="btn btn-custom">Book Now</a>
         </div>
