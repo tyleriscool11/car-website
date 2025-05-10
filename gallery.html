@@ -6,7 +6,6 @@
   <title>Gallery - SR Auto Detailing</title>
   <link rel="icon" href="images/logo-small.png" type="image/png" />
   <style>
-    /* Reset & Base */
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: Arial, sans-serif;
@@ -15,7 +14,6 @@
       line-height: 1.5;
     }
 
-    /* Navbar */
     .navbar {
       background-color: #fff;
       padding: 15px 20px;
@@ -39,7 +37,6 @@
       flex-direction: column;
       position: absolute; top: 60px; left: 20px;
       background: #fff; border: 1px solid #ddd; border-radius: 8px;
-      overflow: hidden;
     }
     .nav-links.active { display: flex; }
     .nav-links a {
@@ -50,41 +47,56 @@
     .nav-center {
       display: flex; flex-direction: column; align-items: center;
       line-height: 1.2; pointer-events: none;
+      white-space: nowrap;
     }
     .main-title { font-size: 26px; font-weight: bold; letter-spacing: 2px; }
     .subtitle   { font-size: 16px; color: #555; letter-spacing: 1px; }
     .call-icon  { position: absolute; right: 15px; font-size: 24px; color: #000; }
     .call-icon:hover { color: #555; }
 
-    /* Page Title */
     .container {
-      max-width: 1100px;
+      max-width: 1200px;
       margin: 120px auto 60px;
       padding: 0 20px;
     }
+
     h1 {
       text-align: center;
       margin-bottom: 40px;
       font-size: 2.5rem;
     }
 
-    /* Gallery Layout */
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
-      gap: 30px;
+    .pair-row {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+      gap: 20px;
     }
+
+    .before-after-set {
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+      flex: 1 1 48%;
+      justify-content: center;
+    }
+
     .photo {
       position: relative;
+      width: 100%;
+      max-width: 250px;
       border-radius: 10px;
       overflow: hidden;
       background: #000;
     }
+
     .photo img {
       width: 100%;
       height: auto;
       display: block;
     }
+
     .label {
       position: absolute;
       top: 10px; left: 10px;
@@ -95,13 +107,19 @@
       font-weight: bold;
       border-radius: 4px;
     }
+
     .photo.right .label {
       left: auto; right: 10px;
     }
 
-    @media (max-width: 480px) {
-      .nav-center .main-title { font-size: 22px; }
-      .nav-center .subtitle   { font-size: 14px; }
+    @media (max-width: 768px) {
+      .pair-row {
+        flex-direction: column;
+      }
+      .before-after-set {
+        flex-direction: column;
+        align-items: center;
+      }
     }
   </style>
 </head>
@@ -128,42 +146,54 @@
 
   <div class="container">
     <h1>Gallery</h1>
-    <div class="gallery">
-      <!-- Before/After Pairs -->
-      <div class="photo left">
-        <img src="images/trunkbeforebenz.JPG" alt="Before Trunk">
-        <div class="label">Before</div>
-      </div>
-      <div class="photo right">
-        <img src="images/trunkbenzafter.JPG" alt="After Trunk">
-        <div class="label">After</div>
+
+    <!-- Row 1 -->
+    <div class="pair-row">
+      <div class="before-after-set">
+        <div class="photo left">
+          <img src="images/trunkbeforebenz.JPG" alt="Before">
+          <div class="label">Before</div>
+        </div>
+        <div class="photo right">
+          <img src="images/trunkbenzafter.JPG" alt="After">
+          <div class="label">After</div>
+        </div>
       </div>
 
-      <div class="photo left">
-        <img src="images/aricarbefore.jpg" alt="Before Interior">
-        <div class="label">Before</div>
+      <div class="before-after-set">
+        <div class="photo left">
+          <img src="images/aricarbefore.jpg" alt="Before">
+          <div class="label">Before</div>
+        </div>
+        <div class="photo right">
+          <img src="images/aricarafter.jpg" alt="After">
+          <div class="label">After</div>
+        </div>
       </div>
-      <div class="photo right">
-        <img src="images/aricarafter.jpg" alt="After Interior">
-        <div class="label">After</div>
+    </div>
+
+    <!-- Row 2 -->
+    <div class="pair-row">
+      <div class="before-after-set">
+        <div class="photo left">
+          <img src="images/seatbeforeari.jpg" alt="Before">
+          <div class="label">Before</div>
+        </div>
+        <div class="photo right">
+          <img src="images/seatafterari.jpg" alt="After">
+          <div class="label">After</div>
+        </div>
       </div>
 
-      <div class="photo left">
-        <img src="images/seatbeforeari.jpg" alt="Before Seats">
-        <div class="label">Before</div>
-      </div>
-      <div class="photo right">
-        <img src="images/seatafterari.jpg" alt="After Seats">
-        <div class="label">After</div>
-      </div>
-
-      <div class="photo left">
-        <img src="images/chargerbefore.jpg" alt="Before Car">
-        <div class="label">Before</div>
-      </div>
-      <div class="photo right">
-        <img src="images/chargerafer.jpg" alt="After Car">
-        <div class="label">After</div>
+      <div class="before-after-set">
+        <div class="photo left">
+          <img src="images/chargerbefore.jpg" alt="Before">
+          <div class="label">Before</div>
+        </div>
+        <div class="photo right">
+          <img src="images/chargerafter.jpg" alt="After">
+          <div class="label">After</div>
+        </div>
       </div>
     </div>
   </div>
@@ -172,6 +202,7 @@
     function toggleMenu() {
       document.getElementById('navLinks').classList.toggle('active');
     }
+
     document.addEventListener('click', function(e) {
       const nav = document.getElementById('navLinks'),
             burger = document.querySelector('.hamburger'),
@@ -184,7 +215,6 @@
 
 </body>
 </html>
-
 
 
 
