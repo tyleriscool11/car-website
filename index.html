@@ -16,7 +16,7 @@
     }
     a { text-decoration: none; }
 
-    /* — Navbar (restored) — */
+    /* — Navbar (original style) — */
     .navbar {
       background-color: #fff;
       padding: 15px 20px;
@@ -72,10 +72,11 @@
     /* — Hero Section — */
     .hero {
       position: relative;
-      height: 100vh;
+      height: 60vh; /* smaller so you see below-fold content */
       background: url('images/Mercedesfront.jpeg') no-repeat center/cover;
       display: flex; align-items: center; justify-content: center;
       text-align: center;
+      margin-top: 70px; /* push below navbar */
     }
     .hero::before {
       content: '';
@@ -89,9 +90,8 @@
       animation: fadeInUp 1s ease-out;
     }
     .hero-content h1 {
-      font-size: 2.75rem; margin-bottom: 0.5rem;
-      letter-spacing: 1px; line-height: 1.1;
-      color: #fff;
+      font-size: 2.5rem; margin-bottom: 0.5rem;
+      color: #fff; letter-spacing: 1px; line-height: 1.1;
     }
     .hero-content p {
       font-size: 1rem; margin-bottom: 2rem;
@@ -107,6 +107,8 @@
       font-size: 1rem; font-weight: 600;
       border-radius: 4px;
       transition: background 0.3s, transform 0.2s;
+      text-align: center;
+      display: block;
     }
     .cta-btn:hover {
       background: #fff;
@@ -119,10 +121,114 @@
       to   { opacity: 1; transform: translateY(0); }
     }
 
+    /* — Services Overview — */
+    .services-overview {
+      background: #111;
+      padding: 4rem 1rem;
+      text-align: center;
+    }
+    .services-overview h2 {
+      color: #fff;
+      margin-bottom: 2rem;
+      font-size: 1.75rem;
+    }
+    .cards {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .card {
+      background: #222;
+      padding: 1.5rem;
+      border-radius: 8px;
+      width: 260px;
+    }
+    .card h3 {
+      margin-bottom: 0.5rem;
+      color: #e30613;
+    }
+    .card p {
+      margin-bottom: 1rem;
+      color: #ccc;
+    }
+    .card-btn {
+      display: inline-block;
+      background: #e30613;
+      color: #fff;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+    .card-btn:hover {
+      background: #fff;
+      color: #e30613;
+    }
+
+    /* — Gallery Preview — */
+    .gallery-preview {
+      background: #000;
+      padding: 4rem 1rem;
+      text-align: center;
+    }
+    .gallery-preview h2 {
+      color: #fff;
+      margin-bottom: 2rem;
+      font-size: 1.75rem;
+    }
+    .thumbs {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .thumbs img {
+      width: 150px;
+      height: auto;
+      border-radius: 6px;
+      object-fit: cover;
+    }
+    .see-all {
+      display: inline-block;
+      margin-top: 1.5rem;
+      color: #e30613;
+      font-weight: 600;
+    }
+
+    /* — Contact CTA — */
+    .contact-cta {
+      background: #111;
+      padding: 4rem 1rem;
+      text-align: center;
+    }
+    .contact-cta h2 {
+      color: #fff;
+      margin-bottom: 1rem;
+      font-size: 1.75rem;
+    }
+    .contact-cta p {
+      color: #ccc;
+      margin-bottom: 1.5rem;
+    }
+    .contact-cta .cta-btn {
+      background: #e30613;
+      color: #fff;
+      padding: 0.75rem 1.5rem;
+      border-radius: 4px;
+      font-weight: 600;
+      display: inline-block;
+    }
+    .contact-cta .cta-btn:hover {
+      background: #fff;
+      color: #e30613;
+    }
+
     /* — Responsive — */
     @media (max-width: 700px) {
       .hero-content h1 { font-size: 2rem; }
-      .cta-btn       { font-size: 0.9rem; }
+      .cta-btn        { font-size: 0.9rem; }
+      .cards          { flex-direction: column; }
+      .card           { width: 100%; max-width: 320px; }
     }
   </style>
 </head>
@@ -140,12 +246,10 @@
         <a href="contact.html">Contact</a>
       </div>
     </div>
-
     <div class="nav-center">
       <div class="main-title">SUPREME REVIVE</div>
       <div class="subtitle">Auto Detailing</div>
     </div>
-
     <a href="tel:2108703203" class="call-icon" title="Call us">📞</a>
   </nav>
 
@@ -161,6 +265,44 @@
     </div>
   </section>
 
+  <section class="services-overview">
+    <h2>Our Packages</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Silver</h3>
+        <p>Quick exterior wash & basic interior vacuum.</p>
+        <a href="services.html#silver" class="card-btn">Learn More</a>
+      </div>
+      <div class="card">
+        <h3>Gold</h3>
+        <p>Full interior detail + exterior wax & trim shine.</p>
+        <a href="services.html#gold" class="card-btn">Learn More</a>
+      </div>
+      <div class="card">
+        <h3>Premium</h3>
+        <p>Complete paint correction & ceramic coating.</p>
+        <a href="services.html#premium" class="card-btn">Learn More</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="gallery-preview">
+    <h2>Gallery Highlights</h2>
+    <div class="thumbs">
+      <a href="gallery.html"><img src="images/trunkbeforebenz.JPG" alt=""></a>
+      <a href="gallery.html"><img src="images/aricarafter.jpg" alt=""></a>
+      <a href="gallery.html"><img src="images/seatafterari.jpg" alt=""></a>
+      <a href="gallery.html"><img src="images/chargerafter.jpg" alt=""></a>
+    </div>
+    <a href="gallery.html" class="see-all">See All Photos →</a>
+  </section>
+
+  <section class="contact-cta">
+    <h2>Ready to Book?</h2>
+    <p>Call us now or fill out our contact form to schedule your appointment.</p>
+    <a href="contact.html" class="cta-btn">Contact Us</a>
+  </section>
+
   <script>
     function toggleMenu() {
       document.getElementById('navLinks').classList.toggle('active');
@@ -174,9 +316,9 @@
       }
     });
   </script>
-
 </body>
 </html>
+
 
 
 
