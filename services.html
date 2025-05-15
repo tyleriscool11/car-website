@@ -6,6 +6,15 @@
   <title>Services - SR Auto Detailing</title>
   <link rel="icon" href="images/logo-small.png" type="image/png" />
 
+  <!-- Font Awesome for social icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-pQ8cqR2qf+34XyOf3HlZFFFjmdn6s2m6DNsDAmBjAfsI6Ghn9HHjBrJT+Z+e9b5hU63iSVrFZG0GeLRXv0Qw6g=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+
   <style>
     /* reset & base */
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -41,43 +50,19 @@
 
     /* Page wrapper/title */
     .container {
-      max-width: 1400px;
+      max-width: 1600px;
       margin: 120px auto 60px;
-      padding: 0 3rem; /* matches grid gap */
+      padding: 0 2rem; /* a bit less padding to allow wider cards */
     }
     h1 {
       font-size: 2.5rem; text-align: center; margin-bottom: 2rem;
       letter-spacing: 1px;
     }
 
-    /* CTA above packages */
-    .cta {
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-    .cta p {
-      font-size: 1.25rem;
-      margin-bottom: 1rem;
-      color: #333;
-    }
-    .btn-contact {
-      display: inline-block;
-      background: #0052d4;
-      color: #fff;
-      padding: .75rem 1.5rem;
-      border-radius: 4px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: background .3s;
-    }
-    .btn-contact:hover {
-      background: #003a9b;
-    }
-
-    /* Grid: auto-fit for dynamic spacing */
+    /* Grid: wider cards & dynamic layout */
     .services-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(550px, 1fr));
       gap: 3rem;
     }
 
@@ -87,6 +72,7 @@
       color: #fff;
       border-radius: 8px; overflow: hidden;
       display: flex; flex-direction: column;
+      transition: transform 0.3s;
     }
     .card:hover { transform: translateY(-5px); }
 
@@ -94,19 +80,19 @@
     .card-premium { border-top: 4px solid purple; }
     .card-gold    { border-top: 4px solid gold; }
     .card-silver  { border-top: 4px solid silver; }
-    .card-custom  { border-top: 4px solid #00bfff; }
+    .card-custom  { border-top: 4px solid #2e2e2e; }
 
-    /* Image fixed height */
+    /* Image taller for more vertical space */
     .card img {
-      width: 100%; height: 300px; object-fit: cover;
+      width: 100%; height: 350px; object-fit: cover;
     }
 
-    /* Card body */
+    /* Card body with more min-height */
     .card-body {
       padding: 2rem;
       flex: 1;
       display: flex; flex-direction: column;
-      min-height: 200px;
+      min-height: 240px;
     }
     .card-title {
       font-size: 1.5rem; margin-bottom: .75rem; color: #fff;
@@ -120,7 +106,7 @@
     .accent-premium { color: purple; font-weight: bold; text-transform: uppercase; }
     .accent-gold    { color: gold;   font-weight: bold; text-transform: uppercase; }
     .accent-silver  { color: silver; font-weight: bold; text-transform: uppercase; }
-    .accent-custom  { color: #00bfff; font-weight: bold; text-transform: uppercase; }
+    .accent-custom  { color: #2e2e2e; font-weight: bold; text-transform: uppercase; }
 
     /* Buttons */
     .btn {
@@ -134,14 +120,61 @@
     .btn-gold:hover    { background: #bfa500; }
     .btn-silver  { background: silver; color: #000; }
     .btn-silver:hover  { background: #8c8c8c; }
-    .btn-custom  { background: #00bfff; color: #000; }
-    .btn-custom:hover  { background: #009edb; }
+    .btn-custom  { background: #2e2e2e; color: #fff; }
+    .btn-custom:hover  { background: #111; }
+
+    /* Bottom CTA */
+    .bottom-cta {
+      text-align: center;
+      margin: 4rem 0 2rem;
+    }
+    .bottom-cta p {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 1rem;
+    }
+    .btn-contact {
+      display: inline-block;
+      background: #e63946; /* red */
+      color: #fff;
+      padding: .75rem 1.5rem;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background .3s;
+    }
+    .btn-contact:hover { background: #c5303f; }
+
+    /* Fixed social bar */
+    .social-bar {
+      position: fixed;
+      bottom: 0; left: 0; width: 100%;
+      background: #fff;
+      box-shadow: 0 -2px 8px rgba(0,0,0,0.1);
+      padding: .75rem 0;
+      display: flex; justify-content: center; gap: 2rem;
+      z-index: 1000;
+    }
+    .social-bar a {
+      color: #2e2e2e;
+      font-size: 1rem;
+      text-decoration: none;
+      display: flex; align-items: center; gap: .5rem;
+      transition: color .3s, transform .2s;
+    }
+    .social-bar a i { font-size: 1.25rem; }
+    .social-bar a:hover {
+      color: #111;
+      transform: scale(1.1);
+    }
 
     /* Responsive tweaks */
     @media (max-width: 480px) {
-      .container { padding: 0 1.5rem; }
-      .main-title { font-size: 22px; }
-      .subtitle   { font-size: 14px; }
+      .container { padding: 0 1rem; }
+      h1 { font-size: 2rem; }
+      .bottom-cta p { font-size: 1.5rem; }
+      .social-bar { gap: 1rem; padding: .5rem 0; }
     }
   </style>
 </head>
@@ -165,11 +198,6 @@
   </nav>
 
   <div class="container">
-    <div class="cta">
-      <p>Are these services not meeting ur needs?</p>
-      <a href="contact.html" class="btn-contact">Contact us for a free quote!</a>
-    </div>
-
     <h1>Detailing Packages</h1>
     <div class="services-grid">
 
@@ -177,7 +205,7 @@
       <div class="card card-premium">
         <img src="images/Mercedesfront.jpeg" alt="Premium Package Car">
         <div class="card-body">
-          <div class="card-title"><span class="accent-premium">PREMIUM</span> Package — <strong>$150</strong></div>
+          <div class="card-title"><span class="accent-premium">PREMIUM</span> Package — $150</div>
           <div class="card-desc">
             <span class="accent-gold">Gold package</span> + Stain and Pet Hair Removal + Paint Decontamination
           </div>
@@ -189,9 +217,8 @@
       <div class="card card-gold">
         <img src="images/Trishcarside.jpeg" alt="Gold Package Car">
         <div class="card-body">
-          <div class="card-title"><span class="accent-gold">GOLD</span> Package — <strong>$115</strong></div>
-          <div class="card-desc">
-            <span class="accent-silver">Silver package</span> + Inside vacuum and light chemical wipedown
+          <div class="card-title"><span class="accent-gold">GOLD</span> Package — $115</div>
+          <div class="card-desc">…
           </div>
           <a href="booking.html" class="btn btn-gold">Book Now</a>
         </div>
@@ -201,9 +228,8 @@
       <div class="card card-silver">
         <img src="images/chargerafter.jpg" alt="Silver Package Car">
         <div class="card-body">
-          <div class="card-title"><span class="accent-silver">SILVER</span> Package — <strong>$50</strong></div>
-          <div class="card-desc">
-            Exterior Wash with 2–3 Ceramic Protectant + Safe Contact Wash
+          <div class="card-title"><span class="accent-silver">SILVER</span> Package — $50</div>
+          <div class="card-desc">…
           </div>
           <a href="booking.html" class="btn btn-silver">Book Now</a>
         </div>
@@ -219,15 +245,36 @@
             Junk Removal — $15<br>
             Paint Correction — $150 <em>(coming soon!)</em>
           </div>
-          <a href="contact.html" class="btn btn-custom">Book Now</a>
+          <a href="contact.html" class="btn btn-custom">Contact for Quote</a>
         </div>
       </div>
 
     </div>
+
+    <!-- Bottom CTA -->
+    <div class="bottom-cta">
+      <p>ARE THESE SERVICES NOT MEETING UR NEEDS?</p>
+      <a href="contact.html" class="btn-contact">CONTACT US FOR A FREE QUOTE!</a>
+    </div>
+  </div>
+
+  <!-- Fixed Social Bar -->
+  <div class="social-bar">
+    <a href="https://instagram.com/srautodetailingco" target="_blank">
+      <i class="fab fa-instagram"></i>@srautodetailingco
+    </a>
+    <a href="https://facebook.com/SupremeReviveAutoDetailing" target="_blank">
+      <i class="fab fa-facebook-f"></i>Facebook
+    </a>
+    <a href="https://tiktok.com/@revivedetails1" target="_blank">
+      <i class="fab fa-tiktok"></i>@revivedetails1
+    </a>
   </div>
 
   <script>
-    function toggleMenu() { document.getElementById('navLinks').classList.toggle('active'); }
+    function toggleMenu() {
+      document.getElementById('navLinks').classList.toggle('active');
+    }
     document.addEventListener('click', e => {
       const nav    = document.getElementById('navLinks'),
             burger = document.querySelector('.hamburger'),
