@@ -52,14 +52,14 @@
     .container {
       max-width: 1600px;
       margin: 120px auto 60px;
-      padding: 0 2rem; /* a bit less padding to allow wider cards */
+      padding: 0 2rem;
     }
     h1 {
       font-size: 2.5rem; text-align: center; margin-bottom: 2rem;
       letter-spacing: 1px;
     }
 
-    /* Grid: wider cards & dynamic layout */
+    /* Grid: wider cards */
     .services-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(550px, 1fr));
@@ -80,14 +80,14 @@
     .card-premium { border-top: 4px solid purple; }
     .card-gold    { border-top: 4px solid gold; }
     .card-silver  { border-top: 4px solid silver; }
-    .card-custom  { border-top: 4px solid #blue; }
+    .card-custom  { border-top: 4px solid #2e2e2e; }
 
-    /* Image taller for more vertical space */
+    /* Image taller */
     .card img {
       width: 100%; height: 350px; object-fit: cover;
     }
 
-    /* Card body with more min-height */
+    /* Card body */
     .card-body {
       padding: 2rem;
       flex: 1;
@@ -120,8 +120,15 @@
     .btn-gold:hover    { background: #bfa500; }
     .btn-silver  { background: silver; color: #000; }
     .btn-silver:hover  { background: #8c8c8c; }
-    .btn-custom  { background: #2e2e2e; color: #fff; }
-    .btn-custom:hover  { background: #111; }
+
+    /* Custom add-on button now blue */
+    .btn-custom {
+      background: #00bfff; /* bright blue */
+      color: #000;
+    }
+    .btn-custom:hover {
+      background: #009edb;
+    }
 
     /* Bottom CTA */
     .bottom-cta {
@@ -132,16 +139,17 @@
       font-size: 2rem;
       font-weight: bold;
       color: #333;
-      margin-bottom: 1rem;
+      /* removed uppercase */
     }
     .btn-contact {
       display: inline-block;
-      background: #e63946; /* red */
+      background: #e63946;
       color: #fff;
       padding: .75rem 1.5rem;
       border-radius: 4px;
       text-decoration: none;
       font-weight: bold;
+      /* sentence-case label below */
       transition: background .3s;
     }
     .btn-contact:hover { background: #c5303f; }
@@ -205,7 +213,7 @@
       <div class="card card-premium">
         <img src="images/Mercedesfront.jpeg" alt="Premium Package Car">
         <div class="card-body">
-          <div class="card-title"><span class="accent-premium">PREMIUM</span> Package — $150</div>
+          <div class="card-title"><span class="accent-premium">Premium</span> Package — $150</div>
           <div class="card-desc">
             <span class="accent-gold">Gold package</span> + Stain and Pet Hair Removal + Paint Decontamination
           </div>
@@ -217,9 +225,8 @@
       <div class="card card-gold">
         <img src="images/Trishcarside.jpeg" alt="Gold Package Car">
         <div class="card-body">
-          <div class="card-title"><span class="accent-gold">GOLD</span> Package — $115</div>
-          <div class="card-desc">…
-          </div>
+          <div class="card-title"><span class="accent-gold">Gold</span> Package — $115</div>
+          <div class="card-desc">…</div>
           <a href="booking.html" class="btn btn-gold">Book Now</a>
         </div>
       </div>
@@ -228,9 +235,8 @@
       <div class="card card-silver">
         <img src="images/chargerafter.jpg" alt="Silver Package Car">
         <div class="card-body">
-          <div class="card-title"><span class="accent-silver">SILVER</span> Package — $50</div>
-          <div class="card-desc">…
-          </div>
+          <div class="card-title"><span class="accent-silver">Silver</span> Package — $50</div>
+          <div class="card-desc">…</div>
           <a href="booking.html" class="btn btn-silver">Book Now</a>
         </div>
       </div>
@@ -239,7 +245,7 @@
       <div class="card card-custom">
         <img src="images/benztrunkafter.jpg" alt="Custom Add-On Service">
         <div class="card-body">
-          <div class="card-title"><span class="accent-custom">CUSTOM</span> Add-On</div>
+          <div class="card-title"><span class="accent-custom">Custom</span> Add-On</div>
           <div class="card-desc">
             Headlight Restoration — $50<br>
             Junk Removal — $15<br>
@@ -253,8 +259,8 @@
 
     <!-- Bottom CTA -->
     <div class="bottom-cta">
-      <p>ARE THESE SERVICES NOT MEETING UR NEEDS?</p>
-      <a href="contact.html" class="btn-contact">CONTACT US FOR A FREE QUOTE!</a>
+      <p>Are these services not meeting your needs?</p>
+      <a href="contact.html" class="btn-contact">Contact us for a free quote</a>
     </div>
   </div>
 
