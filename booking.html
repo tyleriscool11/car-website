@@ -113,34 +113,31 @@
   <!-- NEW FORM INTEGRATED HERE -->
   <div class="container">
     <h1>Book a Detailing</h1>
-    <form action="https://formsubmit.co/2108703203@txt.att.net" method="POST">
-      <!-- redirect after submit -->
-      <input type="hidden" name="_next" value="thank-you.html" />
-      <!-- disable FormSubmit captcha -->
-      <input type="hidden" name="_captcha" value="false" />
+<form action="https://https://bookingsms-5589.twil.io/send-booking" method="POST">
+  <!-- no hidden _next here; redirect happens in the Function code -->
+  <label for="name">Name</label>
+  <input id="name" name="name" type="text" required />
 
-      <label for="name">Name</label>
-      <input id="name" name="name" type="text" required />
+  <label for="phone">Phone Number</label>
+  <input id="phone" name="phone" type="tel" required />
 
-      <label for="phone">Phone Number</label>
-      <input id="phone" name="phone" type="tel" required />
+  <label for="package">Choose a Package</label>
+  <select id="package" name="package" required>
+    <option value="">-- Select Package --</option>
+    <option value="Silver Package — $50">Silver — $50</option>
+    <option value="Gold Package — $115">Gold — $115</option>
+    <option value="Premium Package — $150">Premium — $150</option>
+  </select>
 
-      <label for="package">Choose a Package</label>
-      <select id="package" name="package" required>
-        <option value="">-- Select Package --</option>
-        <option value="Silver Package — $50">Silver — $50</option>
-        <option value="Gold Package — $115">Gold — $115</option>
-        <option value="Premium Package — $150">Premium — $150</option>
-      </select>
+  <label for="date">Preferred Date</label>
+  <input id="date" name="date" type="date" required />
 
-      <label for="date">Preferred Date</label>
-      <input id="date" name="date" type="date" required />
+  <label for="notes">Vehicle Info / Notes</label>
+  <textarea id="notes" name="notes" rows="4"></textarea>
 
-      <label for="notes">Vehicle Info / Notes</label>
-      <textarea id="notes" name="notes" rows="4" placeholder="Car make, model, condition, etc."></textarea>
+  <button type="submit">Request Booking</button>
+</form>
 
-      <button type="submit">Request Booking</button>
-    </form>
   </div>
 
   <script>
