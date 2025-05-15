@@ -36,18 +36,21 @@
     .call-icon:hover { color: #555; }
 
     /* Page wrapper/title */
-    .container { max-width: 1100px; margin: 120px auto 60px; padding: 0 20px; }
+    .container { max-width: 1200px; margin: 120px auto 60px; padding: 0 20px; }
     h1 {
       font-size: 2.5rem; text-align: center; margin-bottom: 2rem;
       letter-spacing: 1px;
     }
 
-    /* Grid: 1 on mobile, 2 on bigger screens */
+    /* Grid: 1 on mobile, 2 on tablet+, 3 on desktop */
     .services-grid {
-      display: grid; gap: 2rem;
+      display: grid; gap: 3rem;
       grid-template-columns: 1fr;
     }
     @media (min-width: 768px) {
+      .services-grid { grid-template-columns: repeat(2,1fr); }
+    }
+    @media (min-width: 1200px) {
       .services-grid { grid-template-columns: repeat(2,1fr); }
     }
 
@@ -55,9 +58,9 @@
     .card {
       background: #1f1f1f;
       color: #fff;
-      border-radius: 8px; overflow: hidden;
-      display: flex; flex-direction: column;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+      border-radius: 10px; overflow: hidden;
+      display: flex; flex-direction: column; height: 100%;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.5);
       transition: transform 0.3s;
       border-top: 4px solid transparent;
     }
@@ -71,12 +74,12 @@
 
     /* Image fixed height */
     .card img {
-      width: 100%; height: 200px; object-fit: cover;
+      width: 100%; height: 250px; object-fit: cover;
     }
 
     /* Card body */
     .card-body {
-      padding: 1.5rem 1.5rem; flex: 1;
+      padding: 2rem; flex: 1;
       display: flex; flex-direction: column;
     }
     .card-title {
@@ -84,7 +87,7 @@
     }
     .card-desc {
       flex: 1; line-height: 1.5; color: #ddd;
-      margin-bottom: 1.25rem;
+      margin-bottom: 1.5rem;
     }
 
     /* Accent title words */
@@ -141,8 +144,10 @@
       <div class="card card-premium">
         <img src="images/Mercedesfront.jpeg" alt="Premium Package Car">
         <div class="card-body">
-          <div class="card-title"><span class="accent-premium">PREMIUM</span> <strong>Package — $150</strong></div>
-          <div class="card-desc">Gold package + Stain and Pet Hair Removal + Paint Decontamination</div>
+          <div class="card-title"><span class="accent-premium">PREMIUM</span> Package — <strong>$150</strong></div>
+          <div class="card-desc">
+            <span class="accent-gold">Gold package</span> + Stain and Pet Hair Removal + Paint Decontamination
+          </div>
           <a href="booking.html" class="btn btn-premium">Book Now</a>
         </div>
       </div>
@@ -151,8 +156,10 @@
       <div class="card card-gold">
         <img src="images/Trishcarside.jpeg" alt="Gold Package Car">
         <div class="card-body">
-          <div class="card-title"><span class="accent-gold">GOLD</span> <strong>Package — $115</strong></div>
-          <div class="card-desc">Silver Package + Inside vacuum and light chemical wipedown</div>
+          <div class="card-title"><span class="accent-gold">GOLD</span> Package — <strong>$115</strong></div>
+          <div class="card-desc">
+            <span class="accent-silver">Silver package</span> + Inside vacuum and light chemical wipedown
+          </div>
           <a href="booking.html" class="btn btn-gold">Book Now</a>
         </div>
       </div>
@@ -161,7 +168,7 @@
       <div class="card card-silver">
         <img src="images/chargerafter.jpg" alt="Silver Package Car">
         <div class="card-body">
-          <div class="card-title"><span class="accent-silver">SILVER</span> <strong>Package — $50</strong></div>
+          <div class="card-title"><span class="accent-silver">SILVER</span> Package — <strong>$50</strong></div>
           <div class="card-desc">Exterior Wash with 2–3 Ceramic Protectant + Safe Contact Wash</div>
           <a href="booking.html" class="btn btn-silver">Book Now</a>
         </div>
@@ -171,7 +178,7 @@
       <div class="card card-custom">
         <img src="images/benztrunkafter.jpg" alt="Custom Add-On Service">
         <div class="card-body">
-          <div class="card-title"><span class="accent-custom">CUSTOM</span> <strong>Add-On</strong></div>
+          <div class="card-title"><span class="accent-custom">CUSTOM</span> Add-On</div>
           <div class="card-desc">Ask us about interior protection, engine bay detail, and headlight restoration.</div>
           <a href="booking.html" class="btn btn-custom">Book Now</a>
         </div>
@@ -183,12 +190,14 @@
   <script>
     function toggleMenu() { document.getElementById('navLinks').classList.toggle('active'); }
     document.addEventListener('click', e => {
-      const nav = document.getElementById('navLinks'), burger = document.querySelector('.hamburger'), call = document.querySelector('.call-icon');
-      if (!nav.contains(e.target) && !burger.contains(e.target) && !call.contains(e.target)) nav.classList.remove('active');
+      const nav = document.getElementById('navLinks'),
+            burger = document.querySelector('.hamburger'),
+            call = document.querySelector('.call-icon');
+      if (!nav.contains(e.target) && !burger.contains(e.target) && !call.contains(e.target)) {
+        nav.classList.remove('active');
+      }
     });
   </script>
 </body>
 </html>
-
-
 
