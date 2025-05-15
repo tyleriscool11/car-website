@@ -6,12 +6,21 @@
   <title>Contact — SR Auto Detailing</title>
   <link rel="icon" href="images/logo-small.png" type="image/png" />
 
-  <style>
-    /* Reset & base */
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body, html { height: 100%; font-family: Arial, sans-serif; }
+  <!-- Font Awesome for icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-pQ8cqR2qf+34XyOf3HlZFFFjmdn6s2m6DNsDAmBjAfsI6Ghn9HHjBrJT+Z+e9b5hU63iSVrFZG0GeLRXv0Qw6g=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
 
-    /* Navbar (unchanged) */
+  <style>
+    /* → RESET & BASE ← */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body, html { height: 100%; font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.5; }
+
+    /* → NAVBAR ← */
     .navbar {
       background: #fff; color: #000;
       display: flex; align-items: center; justify-content: space-between;
@@ -21,92 +30,122 @@
     .nav-left { display: flex; gap: 15px; }
     .hamburger { display: flex; flex-direction: column; cursor: pointer; }
     .hamburger span { background: #000; height: 3px; margin: 3px 0; width: 25px; }
-    .nav-links { display: none; position: absolute; top: 60px; left: 15px;
+    .nav-links {
+      display: none; position: absolute; top: 60px; left: 15px;
       background: #fff; border-radius: 8px; overflow: hidden; flex-direction: column;
     }
     .nav-links.active { display: flex; }
-    .nav-links a { padding: 10px 15px; color: #000; text-decoration: none; font-weight: bold; }
+    .nav-links a {
+      padding: 10px 15px; color: #000; text-decoration: none; font-weight: bold;
+    }
     .nav-links a:hover { background: #f0f0f0; }
     .nav-center {
       position: absolute; left: 50%; transform: translateX(-50%);
       text-align: center; pointer-events: none;
     }
     .main-title { font-size: 26px; font-weight: bold; letter-spacing: 2px; }
-    .subtitle   { font-size: 16px; letter-spacing: 1px; }
+    .subtitle   { font-size: 14px; letter-spacing: 1px; }
     .call-icon  { font-size: 24px; color: #000; text-decoration: none; }
     .call-icon:hover { color: #555; }
 
-    /* Full-screen hero */
+    /* → HERO BG ← */
     .hero {
-      background: linear-gradient(135deg, #1f1f1f 0%, #111 100%);
-      color: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      padding-top: 80px; /* space for navbar */
-      text-align: center;
+      background: linear-gradient(135deg, #0052d4 0%, #4364f7 50%, #6fb1fc 100%);
+      display: flex; align-items: center; justify-content: center;
+      height: 100vh; padding-top: 80px; text-align: center; color: #fff;
     }
 
-    /* Form container */
-    .form-box {
+    /* → FORM CARD ← */
+    .form-card {
       background: #fff;
-      color: #333;
-      width: 90%;
-      max-width: 450px;
+      width: 90%; max-width: 480px;
       padding: 2rem;
-      border-radius: 8px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+      border-radius: 12px;
+      box-shadow: 0 12px 36px rgba(0,0,0,0.2);
+      transform: translateY(-10%);
     }
-    .form-box h1 {
+    .form-card h1 {
       margin-bottom: 1.5rem;
       font-size: 2rem;
-      color: #111;
+      color: #0052d4;
     }
-    .form-box label {
+    .form-card label {
       display: block;
       margin-bottom: .5rem;
-      font-weight: bold;
-      font-size: 1rem;
-      color: #555;
+      font-weight: 600;
+      color: #333;
     }
-    .form-box textarea {
+    .form-card input,
+    .form-card textarea {
       width: 100%;
-      height: 140px;
       padding: .75rem;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      resize: vertical;
-      font-size: 1rem;
       margin-bottom: 1.25rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+      transition: border-color .3s;
     }
-    .form-box button {
+    .form-card input:focus,
+    .form-card textarea:focus {
+      outline: none;
+      border-color: #0052d4;
+    }
+    .form-card button {
       width: 100%;
       padding: .85rem;
-      background: #111;
+      background: #0052d4;
       color: #fff;
-      border: none;
-      border-radius: 4px;
       font-size: 1.1rem;
       font-weight: bold;
+      border: none;
+      border-radius: 6px;
       cursor: pointer;
-      transition: background 0.3s, transform 0.2s;
+      transition: background .3s, transform .2s;
     }
-    .form-box button:hover {
-      background: #333;
+    .form-card button:hover {
+      background: #003a9b;
       transform: translateY(-2px);
     }
 
-    /* Responsive tweak */
+    /* → SOCIALS FOOTER ← */
+    .social-footer {
+      padding: 2rem 0;
+      background: #f5f5f5;
+      text-align: center;
+    }
+    .social-footer p {
+      margin-bottom: 1rem;
+      color: #555;
+      font-weight: 600;
+    }
+    .social-links {
+      display: inline-flex;
+      gap: 1.5rem;
+    }
+    .social-links a {
+      display: flex; align-items: center; gap: .5rem;
+      text-decoration: none; color: #0052d4;
+      font-size: 1rem; font-weight: 600;
+      transition: color .3s, transform .2s;
+    }
+    .social-links a i {
+      font-size: 1.5rem;
+    }
+    .social-links a:hover {
+      color: #003a9b;
+      transform: scale(1.05);
+    }
+
+    /* → RESPONSIVE ← */
     @media (max-width: 480px) {
-      .form-box { padding: 1.5rem; }
-      .form-box h1 { font-size: 1.75rem; }
+      .form-card { padding: 1.5rem; transform: translateY(-5%); }
+      .form-card h1 { font-size: 1.75rem; }
     }
   </style>
 </head>
-
 <body>
-  <!-- Navbar -->
+
+  <!-- NAVBAR -->
   <nav class="navbar">
     <div class="nav-left">
       <div class="hamburger" onclick="toggleMenu()">
@@ -119,40 +158,64 @@
         <a href="contact.html">Contact</a>
       </div>
     </div>
-
     <div class="nav-center">
       <div class="main-title">SUPREME REVIVE</div>
       <div class="subtitle">Auto Detailing</div>
     </div>
-
     <a href="tel:2108703203" class="call-icon">📞</a>
   </nav>
 
-  <!-- Hero + Form -->
+  <!-- HERO + FORM -->
   <section class="hero">
-    <div class="form-box">
-      <h1>Get in Touch</h1>
+    <div class="form-card">
+      <h1>Let's Connect</h1>
       <form action="https://formspree.io/f/mdkgydrn" method="POST">
-        <!-- keep your Formspree fields -->
+        <!-- keep your Formspree settings -->
         <input type="hidden" name="_to" value="2108703203@txt.att.net" />
         <input type="hidden" name="_next" value="thank-you.html" />
 
-        <label for="message">Your Message</label>
-        <textarea id="message" name="message" required></textarea>
+        <label for="name">Your Name</label>
+        <input type="text" id="name" name="name" placeholder="John Doe" required />
+
+        <label for="phone">Mobile Number</label>
+        <input
+          type="tel"
+          id="phone"
+          name="phone"
+          placeholder="+1 210 870 3203"
+          pattern="\+?[0-9 ]{7,}"
+          required
+        />
+
+        <label for="message">Message</label>
+        <textarea id="message" name="message" placeholder="Tell us what you need..." required></textarea>
 
         <button type="submit">Send Message</button>
       </form>
     </div>
   </section>
 
+  <!-- SOCIALS -->
+  <footer class="social-footer">
+    <p>Find us on social media:</p>
+    <div class="social-links">
+      <a href="https://instagram.com/srautodetailingco" target="_blank">
+        <i class="fab fa-instagram"></i> Instagram
+      </a>
+      <a href="https://facebook.com/SupremeReviveAutoDetailing" target="_blank">
+        <i class="fab fa-facebook-f"></i> Facebook
+      </a>
+    </div>
+  </footer>
+
   <script>
     function toggleMenu() {
       document.getElementById('navLinks').classList.toggle('active');
     }
     document.addEventListener('click', e => {
-      const nav = document.getElementById('navLinks'),
+      const nav    = document.getElementById('navLinks'),
             burger = document.querySelector('.hamburger'),
-            call = document.querySelector('.call-icon');
+            call   = document.querySelector('.call-icon');
       if (!nav.contains(e.target) && !burger.contains(e.target) && !call.contains(e.target)) {
         nav.classList.remove('active');
       }
@@ -160,3 +223,4 @@
   </script>
 </body>
 </html>
+
