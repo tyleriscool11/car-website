@@ -6,38 +6,53 @@
   <title>Book a Service - SR Auto Detailing</title>
   <link rel="icon" href="images/logo-small.png" type="image/png" />
   <style>
-    /* … your existing navbar & container styles … */
+    /* Reset & base */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body, html { height: 100%; font-family: Arial, sans-serif; background: #121212; color: #fff; }
 
-    /* Highlight the form area */
-    .container { max-width: 600px; margin: 120px auto 40px; background: #1e1e1e; padding:30px; border-radius:10px; }
-    h1 { text-align:center; margin-bottom:25px; color:#fff; }
+    /* Navbar (your existing styles) */
+    .navbar { /* … */ }
+    .nav-left { /* … */ }
+    .nav-center { /* … */ }
+    .main-title, .subtitle, .call-icon, .hamburger, .nav-links { /* … */ }
 
-    form { display:flex; flex-direction:column; }
-    label { margin-bottom:5px; font-weight:bold; color:#fff; }
+    /* Container */
+    .container {
+      max-width: 600px; margin: 120px auto 40px;
+      background: #1e1e1e; padding: 30px; border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    }
+    h1 { text-align: center; margin-bottom: 25px; }
+
+    /* Form */
+    form { display: flex; flex-direction: column; }
+    label { margin-bottom: 5px; font-weight: bold; color: #fff; }
     input, select, textarea {
-      padding:10px; margin-bottom:20px;
-      border:none; border-radius:5px;
-      background:#2a2a2a; color:#fff;
+      padding: 10px; margin-bottom: 20px;
+      border: none; border-radius: 5px;
+      background: #2a2a2a; color: #fff;
     }
     button {
-      background:#28a745; color:#fff;
-      padding:12px; border:none; border-radius:5px;
-      font-weight:bold; cursor:pointer;
-      transition:background .3s;
+      background: #28a745; color: #fff;
+      padding: 12px; border: none; border-radius: 5px;
+      font-weight: bold; cursor: pointer;
+      transition: background .3s ease;
     }
-    button:hover { background:#218838; }
+    button:hover { background: #218838; }
   </style>
 </head>
 <body>
 
-  <!-- your navbar here -->
+  <nav class="navbar">
+    <!-- your navbar HTML -->
+  </nav>
 
   <div class="container">
     <h1>Book a Detailing</h1>
     <form action="https://formsubmit.co/2108703203@txt.att.net" method="POST">
-      <!-- redirect after submit -->
+      <!-- redirect to thank-you page -->
       <input type="hidden" name="_next" value="thank-you.html" />
-      <!-- disable FormSubmit’s CAPTCHA step -->
+      <!-- turn off captcha -->
       <input type="hidden" name="_captcha" value="false" />
 
       <label for="name">Name</label>
@@ -64,8 +79,19 @@
     </form>
   </div>
 
-  <!-- fixed socials at bottom… -->
-
+  <script>
+    function toggleMenu() {
+      document.getElementById("navLinks").classList.toggle("active");
+    }
+    document.addEventListener("click", e => {
+      const nav = document.getElementById("navLinks"),
+            burger = document.querySelector(".hamburger"),
+            call = document.querySelector(".call-icon");
+      if (!nav.contains(e.target) && !burger.contains(e.target) && !call.contains(e.target)) {
+        nav.classList.remove("active");
+      }
+    });
+  </script>
 </body>
 </html>
 
