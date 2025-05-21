@@ -4,74 +4,39 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Book a Service - SR Auto Detailing</title>
-  <link rel="icon" href="images/logo-small.png" type="image/png" />
   <style>
-    /* Reset & base */
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body, html { height: 100%; font-family: Arial, sans-serif; background: #121212; color: #fff; }
+    body, html {
+      height: 100%; font-family: Arial, sans-serif;
+      background: #121212; color: #fff;
+    }
 
-    /* Navbar */
     .navbar {
       background: #000; padding: 15px 20px;
       display: flex; justify-content: center; align-items: center;
       position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
       box-shadow: 0 2px 10px rgba(0,0,0,0.5);
     }
-    .nav-left {
-      position: absolute; left: 20px;
-      display: flex; gap: 20px;
-    }
-    .hamburger {
-      display: flex; flex-direction: column; cursor: pointer;
-    }
-    .hamburger span {
-      background: #fff; height: 3px; margin: 4px 0; width: 25px;
-    }
-    .nav-links {
-      display: none; flex-direction: column;
-      background: #000; position: absolute;
-      top: 60px; left: 20px; padding: 10px; border-radius: 8px;
-    }
-    .nav-links.active { display: flex; }
-    .nav-links a {
-      color: #fff; text-decoration: none;
-      font-weight: bold; padding: 8px 12px;
-      white-space: nowrap;
-    }
+
     .nav-center {
       display: flex; flex-direction: column; align-items: center;
       line-height: 1.2;
     }
-    .main-title {
-      font-size: 26px; font-weight: bold; letter-spacing: 2px;
-    }
-    .subtitle {
-      font-size: 16px; color: #aaa; letter-spacing: 1px;
-    }
-    .call-icon {
-      position: absolute; right: 15px; font-size: 24px;
-      color: #00bfff; text-decoration: none;
-    }
-    .call-icon:hover { color: #00ffff; }
 
-    /* Container */
+    .main-title { font-size: 26px; font-weight: bold; letter-spacing: 2px; }
+    .subtitle { font-size: 16px; color: #aaa; letter-spacing: 1px; }
+
     .container {
       max-width: 600px; margin: 120px auto 40px;
       background: #1e1e1e; padding: 30px;
       border-radius: 10px;
       box-shadow: 0 0 20px rgba(0,0,0,0.5);
     }
-    h1 {
-      text-align: center; margin-bottom: 25px; color: #fff;
-    }
 
-    /* Form */
-    form {
-      display: flex; flex-direction: column;
-    }
-    label {
-      margin-bottom: 5px; font-weight: bold; color: #fff;
-    }
+    h1 { text-align: center; margin-bottom: 25px; color: #fff; }
+
+    form { display: flex; flex-direction: column; }
+    label { margin-bottom: 5px; font-weight: bold; color: #fff; }
     input, select, textarea {
       padding: 10px; margin-bottom: 20px;
       border: none; border-radius: 5px;
@@ -83,117 +48,80 @@
       font-weight: bold; cursor: pointer;
       transition: background .3s ease;
     }
-    button:hover {
-      background: #218838;
-    }
+    button:hover { background: #218838; }
   </style>
 </head>
 <body>
 
-  <!-- NAVBAR -->
   <nav class="navbar">
-    <div class="nav-left">
-      <div class="hamburger" onclick="toggleMenu()">
-        <span></span><span></span><span></span>
-      </div>
-      <div class="nav-links" id="navLinks">
-        <a href="index.html">Home</a>
-        <a href="services.html">Services</a>
-        <a href="gallery.html">Gallery</a>
-        <a href="contact.html">Contact</a>
-      </div>
-    </div>
     <div class="nav-center">
       <div class="main-title">SUPREME REVIVE</div>
       <div class="subtitle">Auto Detailing</div>
     </div>
-    <a href="tel:2108703203" class="call-icon">📞</a>
   </nav>
 
-  <!-- NEW FORM INTEGRATED HERE -->
   <div class="container">
     <h1>Book a Detailing</h1>
+    <form id="bookingForm">
+      <label for="name">Name</label>
+      <input id="name" name="name" type="text" required />
 
-  <form id="bookingForm">
+      <label for="phone">Phone Number</label>
+      <input id="phone" name="phone" type="tel" required />
 
+      <label for="package">Choose a Package</label>
+      <select id="package" name="package" required>
+        <option value="">-- Select Package --</option>
+        <option value="Silver — $50">Silver — $50</option>
+        <option value="Gold — $115">Gold — $115</option>
+        <option value="Premium — $150">Premium — $150</option>
+      </select>
 
-  <!-- your inputs… -->
- 
+      <label for="date">Preferred Date</label>
+      <input id="date" name="date" type="date" required />
 
+      <label for="notes">Vehicle Info / Notes</label>
+      <textarea id="notes" name="notes" rows="4"></textarea>
 
-  <label for="name">Name</label>
-  <input id="name" name="name" type="text" required />
-
-  <label for="phone">Phone Number</label>
-  <input id="phone" name="phone" type="tel" required />
-
-  <label for="package">Choose a Package</label>
-  <select id="package" name="package" required>
-    <option value="">-- Select Package --</option>
-    <option value="Silver Package — $50">Silver — $50</option>
-    <option value="Gold Package — $115">Gold — $115</option>
-    <option value="Premium Package — $150">Premium — $150</option>
-  </select>
-
-  <label for="date">Preferred Date</label>
-  <input id="date" name="date" type="date" required />
-
-  <label for="notes">Vehicle Info / Notes</label>
-  <textarea id="notes" name="notes" rows="4"></textarea>
-
-  <button type="submit">Request Booking</button>
-</form>
-
+      <button type="submit">Request Booking</button>
+    </form>
   </div>
 
-<script>
-  function toggleMenu() {
-    document.getElementById("navLinks").classList.toggle("active");
-  }
+  <script>
+    document.getElementById("bookingForm").addEventListener("submit", function(e) {
+      e.preventDefault();
 
-  document.addEventListener("click", e => {
-    const nav = document.getElementById("navLinks"),
-          burger = document.querySelector(".hamburger"),
-          call = document.querySelector(".call-icon");
-    if (!nav.contains(e.target) && !burger.contains(e.target) && !call.contains(e.target)) {
-      nav.classList.remove("active");
-    }
-  });
+      const name = document.getElementById("name").value;
+      const phone = document.getElementById("phone").value;
+      const pack = document.getElementById("package").value;
+      const date = document.getElementById("date").value;
+      const notes = document.getElementById("notes").value;
 
-  // Handle booking form submission
-  document.getElementById("bookingForm").addEventListener("submit", function(e) {
-    e.preventDefault(); // stop normal form action
+      const message = `Package: ${pack}\nDate: ${date}\nNotes: ${notes}`;
 
-    const name = document.getElementById("name").value;
-    const phone = document.getElementById("phone").value;
-    const pack = document.getElementById("package").value;
-    const date = document.getElementById("date").value;
-    const notes = document.getElementById("notes").value;
-
-    const fullMessage = `New Booking:\nName: ${name}\nPhone: ${phone}\nPackage: ${pack}\nDate: ${date}\nNotes: ${notes}`;
-
-    fetch('https://bookingsms-5589.twil.io/send-booking', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ 
-        name: name,
-        phone: phone,
-        message: fullMessage
+      fetch("https://bookingsms-5589.twil.io/send-booking", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: name,
+          phone: phone,
+          message: message
+        })
       })
-    })
-    .then(res => res.text())
-    .then(msg => {
-      alert("Booking request sent!");
-      document.getElementById("bookingForm").reset();
-    })
-    .catch(err => {
-      console.error(err);
-      alert("Something went wrong. Try again.");
+      .then(res => {
+        if (!res.ok) throw new Error("Failed to send");
+        return res.text();
+      })
+      .then(data => {
+        alert("Booking request sent!");
+        document.getElementById("bookingForm").reset();
+      })
+      .catch(err => {
+        console.error("Send Error:", err);
+        alert("Something went wrong. Try again.");
+      });
     });
-  });
-</script>
-
-
+  </script>
 </body>
 </html>
 
