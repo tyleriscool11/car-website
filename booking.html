@@ -144,19 +144,58 @@
 
   </div>
 
-  <script>
-    function toggleMenu() {
-      document.getElementById("navLinks").classList.toggle("active");
+<script>
+  function toggleMenu() {
+    document.getElementById("navLinks").classList.toggle("active");
+  }
+
+  document.addEventListener("click", e => {
+    const nav    = document.getElementById("navLinks"),
+          burger = document.querySelector(".hamburger"),
+          call   = document.querySelector(".call-icon");
+    if (!nav.contains(e.target) && !burger.contains(e.target) && !call.contains(e.target)) {
+      nav.classList.remove("active");
     }
-    document.addEventListener("click", e => {
-      const nav    = document.getElementById("navLinks"),
-            burger = document.querySelector(".hamburger"),
-            call   = document.querySelector(".call-icon");
-      if (!nav.contains(e.target) && !burger.contains(e.target) && !call.contains(e.target)) {
-        nav.classList.remove("active");
-      }
+  });
+
+  // Submit form via fetch to Twilio
+  document.getElementById("bookingForm").addEventListener("submit", function(e) {
+    e.preventDefault(); // stop form from reloading page
+
+    const name = document.getElementById("name").value;
+    const phone = document.getElementById("phone").value;
+    const pack = document.getElementById("package").value;
+    const date = document.getElementById("date").value;
+    const notes = document.getElementById("notes").value;
+
+    const fullMessage = `New Booking:
+Name: ${name}
+Phone: ${phone}
+Package: ${pack}
+Preferred Date: ${date}
+Notes: ${notes}`;
+
+    fetch('https://bookingsms-5589.twil.io/send-booking', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ 
+        name, 
+        email: phone, // putting phone in email field just to reuse your Twilio code
+        message: fullMessage
+      })
+    })
+    .then(res => res.text())
+    .then(msg => {
+      alert("Booking request sent!"); 
+      document.getElementById("bookingForm").reset();
+    })
+    .catch(err => {
+      console.error(err);
+      alert("Failed to send booking. Try again.");
     });
-  </script>
+  });
+</script>
+
 </body>
 </html>
 
