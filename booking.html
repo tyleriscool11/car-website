@@ -152,17 +152,17 @@
   }
 
   document.addEventListener("click", e => {
-    const nav    = document.getElementById("navLinks"),
+    const nav = document.getElementById("navLinks"),
           burger = document.querySelector(".hamburger"),
-          call   = document.querySelector(".call-icon");
+          call = document.querySelector(".call-icon");
     if (!nav.contains(e.target) && !burger.contains(e.target) && !call.contains(e.target)) {
       nav.classList.remove("active");
     }
   });
 
-  // Submit form via fetch to Twilio
+  // Handle booking form submission
   document.getElementById("bookingForm").addEventListener("submit", function(e) {
-    e.preventDefault(); // stop form from reloading page
+    e.preventDefault(); // stop normal form action
 
     const name = document.getElementById("name").value;
     const phone = document.getElementById("phone").value;
@@ -170,33 +170,29 @@
     const date = document.getElementById("date").value;
     const notes = document.getElementById("notes").value;
 
-    const fullMessage = `New Booking:
-Name: ${name}
-Phone: ${phone}
-Package: ${pack}
-Preferred Date: ${date}
-Notes: ${notes}`;
+    const fullMessage = `New Booking:\nName: ${name}\nPhone: ${phone}\nPackage: ${pack}\nDate: ${date}\nNotes: ${notes}`;
 
     fetch('https://bookingsms-5589.twil.io/send-booking', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ 
-        name, 
-        email: phone, // putting phone in email field just to reuse your Twilio code
+        name: name,
+        phone: phone,
         message: fullMessage
       })
     })
     .then(res => res.text())
     .then(msg => {
-      alert("Booking request sent!"); 
+      alert("Booking request sent!");
       document.getElementById("bookingForm").reset();
     })
     .catch(err => {
       console.error(err);
-      alert("Failed to send booking. Try again.");
+      alert("Something went wrong. Try again.");
     });
   });
 </script>
+
 
 </body>
 </html>
