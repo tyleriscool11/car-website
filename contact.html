@@ -97,6 +97,19 @@
     </form>
     <div class="note">We’ll reach out to you shortly by phone or text.</div>
   </div>
+    <script>
+    function toggleMenu() {
+      document.getElementById('navLinks').classList.toggle('active');
+    }
+    document.addEventListener('click', e => {
+      const nav    = document.getElementById('navLinks'),
+            burger = document.querySelector('.hamburger'),
+            call   = document.querySelector('.call-icon');
+      if (!nav.contains(e.target) && !burger.contains(e.target) && !call.contains(e.target)) {
+        nav.classList.remove('active');
+      }
+    });
+  </script>
 
 </body>
 </html>
