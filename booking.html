@@ -64,28 +64,29 @@
   <div class="container">
     <h1>Book a Detailing Service</h1>
 <form action="https://formsubmit.co/srautodetailingco@gmail.com" method="POST">
+  <input type="hidden" name="_next" value="https://srautodetails.com/thank-you.html">
+  <input type="hidden" name="_captcha" value="false">
+  <input type="hidden" name="_template" value="table">
 
-      <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_template" value="table">
-      
-      <label for="name">Full Name</label>
-      <input type="text" name="name" required>
+  <label for="name">Full Name</label>
+  <input type="text" name="name" required>
 
-      <label for="phone">Phone Number</label>
-      <input type="tel" name="phone" required>
+  <label for="phone">Phone Number</label>
+  <input type="tel" name="phone" required>
 
-      <label for="package">Select Package</label>
-      <select name="package" required>
-        <option value="Silver">Silver</option>
-        <option value="Gold">Gold</option>
-        <option value="Premium">Premium</option>
-      </select>
+  <label for="package">Select Package</label>
+  <select name="package" required>
+    <option value="Silver">Silver</option>
+    <option value="Gold">Gold</option>
+    <option value="Premium">Premium</option>
+  </select>
 
-      <label for="message">Additional Details (Optional)</label>
-      <textarea name="message" rows="4" placeholder="Tell us what you need..."></textarea>
+  <label for="message">Additional Details</label>
+  <textarea name="message" placeholder="Optional"></textarea>
 
-      <button type="submit">Submit Booking</button>
-    </form>
+  <button type="submit">Book Now</button>
+</form>
+
     <div class="note">You will receive a confirmation shortly after submitting.</div>
   </div>
 </body>
