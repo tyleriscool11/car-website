@@ -125,22 +125,24 @@
   <section class="hero">
     <div class="form-card">
       <h1>Let's Talk</h1>
-      <form action="https://formsubmit.co/srautodetailingco@gmail.com" method="POST">
-        <input type="hidden" name="_next" value="thank-you.html" />
-        <input type="hidden" name="_captcha" value="false" />
-        <input type="hidden" name="_template" value="table" />
+     <form action="https://formsubmit.co/srautodetailingco@gmail.com" method="POST">
+  <!-- ✅ REDIRECT after submission -->
+  <input type="hidden" name="_next" value="https://srautodetails.com/thank-you.html" />
+  <input type="hidden" name="_captcha" value="false" />
+  <input type="hidden" name="_template" value="table" />
 
-        <label for="name">Full Name</label>
-        <input type="text" id="name" name="name" placeholder="John Doe" required>
+  <label for="name">Full Name</label>
+  <input type="text" name="name" required />
 
-        <label for="phone">Phone Number</label>
-        <input type="tel" id="phone" name="phone" placeholder="(210) 870-3203" required>
+  <label for="phone">Phone Number</label>
+  <input type="tel" name="phone" required />
 
-        <label for="message">Message</label>
-        <textarea id="message" name="message" rows="4" placeholder="Let us know what you're interested in..." required></textarea>
+  <label for="message">Message</label>
+  <textarea name="message" required></textarea>
 
-        <button type="submit">Send Message</button>
-      </form>
+  <button type="submit">Send Message</button>
+</form>
+
     </div>
   </section>
 
